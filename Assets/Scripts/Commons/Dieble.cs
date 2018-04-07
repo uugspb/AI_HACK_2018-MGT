@@ -44,7 +44,7 @@ public class Dieble : MonoBehaviour {
     public virtual void fullDestroy()
     {
         InvokeEvent();
-        gameObject.SetActive(false);
-        Destroy(this);
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

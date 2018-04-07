@@ -9,6 +9,8 @@ public class LevelManager : MonoBehaviour
 	public int levelsCount;
 	public float cameraSpeed;
 	public List<LevelConfig> levelConfigs;
+	
+	public bool isStart = true;
 
 	
 	public int currentLevel = 0;
@@ -26,7 +28,9 @@ public class LevelManager : MonoBehaviour
 
 	public void nextLevel()
 	{
-		if (currentLevel < levelsCount - 1)
+		if (currentLevel == 0 && isStart)
+			isStart = false;
+		else if (currentLevel < levelsCount - 1)
 			currentLevel++;
 	}
 
@@ -37,9 +41,9 @@ public class LevelManager : MonoBehaviour
 
 	void Update()
 	{
-		if (Camera.main.transform.position.y > levelConfigs[currentLevel].cameraPosition.y)
+		if (!isStart && (Camera.main.transform.position.y > levelConfigs[currentLevel].cameraPosition.y))
 		{
-			Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, levelConfigs[currentLevel].cameraPosition,
+			Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, levelConfigs[currentLevel].cameraPosition,
 				cameraSpeed * Time.deltaTime);
 		}
 	}
