@@ -35,7 +35,7 @@ public class SinkableGenerator : MonoBehaviour {
 		Sinkable sinkable = Instantiate(sinkablePrefab, position, Quaternion.identity);
 		sinkableList.Add(sinkable);
 
-		sinkable.sinkTargetY = clickPosition.y;
+		sinkable.sinkTarget = clickPosition;
 		sinkable.Sink();
 	}
 
