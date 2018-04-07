@@ -76,4 +76,27 @@ public class FishGenerator : DiebleEventChecker
 		
 		fishCount--;
 	}
+
+	public Fish getFish(Vector3 clickPosition)
+	{
+		foreach (Fish fish in fishList)
+		{
+			Vector2 size = fish.GetComponent<SpriteRenderer>().size;
+			if (checkBox(size.y, size.x, fish.transform.position, clickPosition))
+				return fish;
+		}
+
+		return null;
+	}
+
+	private bool checkBox(float height, float width, Vector3 position, Vector3 click)
+	{
+		if (position.x - width / 2.0f < click.x
+		    && position.x + width / 2.0f > click.x
+		    && position.y - height / 2.0f < click.y
+		    && position.y + height / 2.0f > click.y)
+			return true;
+		
+		return false;
+	}
 }
