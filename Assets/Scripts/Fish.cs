@@ -10,29 +10,40 @@ public class Fish : Dieble {
 
     public Vector3 target;
     public FishMind mind;
-    public double ungle;
+    public double angle;
 
     private SpriteRenderer spriteRenderer;
     private bool isFishMove;
     private int currentHP;
 
-    void Start()
+    void OnValidate()
     {
-        ungle = 180 - Vector3.Angle(this.transform.position, target);
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = fishConfig.kindFish;
     }
 
-    void Update () {
-        this.transform.position = Vector3.MoveTowards(this.transform.position, target, fishConfig.speed * Time.deltaTime);
-        this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, this.transform.rotation.y,(float)ungle);
-        if (target.x-this.transform.position.x >= 0)
-            this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 0, (float)ungle);
-        else
-            this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 180, (float)ungle);
+    private void Start()
+    {
+        angle = (Math.Asin((target.y - this.transform.position.y) / Vector3.Distance(this.transform.position, target)) / 3.14f) * 180;
     }
 
-    void FishMove()
+    void Update () {
+        //target = getPosition();
+        this.transform.position = Vector3.MoveTowards(this.transform.position, target, fishConfig.speed * Time.deltaTime);
+        this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, this.transform.rotation.y, (float)angle);
+        if (target.x-this.transform.position.x >= 0)
+            this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 0, (float)angle);
+        else
+            this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 180, (float)angle);
+    }
+
+    Vector3 getPosition()
+    {
+        Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1);
+        return Camera.main.ScreenToWorldPoint(position);
+    }
+
+void FishMove()
     {
         isFishMove = true;
     }
