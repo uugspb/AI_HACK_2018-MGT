@@ -59,7 +59,6 @@ public class Fish : Dieble {
     {
         isFishMove = false;
         speed = 0;
-        //анимация в стоячем положении
     }
 
     bool IsFishMove()
