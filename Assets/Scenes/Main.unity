@@ -824,8 +824,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diebleList: []
   fishPrefab: {fileID: 1581781341738824, guid: 8613f0984e637bb42aaca07f3a0052d3, type: 2}
-  fishCount: 30
-  maxFishCount: 30
+  fishCount: 1
+  maxFishCount: 1
   bottomGenBorder: 0.2
   topGenBorder: 0.9
   maxRandomInterval: 0.5

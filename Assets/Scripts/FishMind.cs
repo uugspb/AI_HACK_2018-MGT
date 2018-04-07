@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class FishMind : MonoBehaviour {
 
-	[SerializeField]
 	private List<float> trapProbabilityList;
+
+    public FishMind(List<float> trapProbabilityList)
+    {
+        this.trapProbabilityList = trapProbabilityList;
+    }
 
 	bool CheckTrap(float trapDistance, int trapID)
 	{

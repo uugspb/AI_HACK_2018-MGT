@@ -29,7 +29,7 @@ public class Fish : Dieble {
 
     private float currentStayTime;
     private double trapAngle;
-    private Vector3 trapTarget;
+    private Transform trapTarget;
 
     private DisappearEvent m_disappearEvent = new DisappearEvent();
 
@@ -37,7 +37,6 @@ public class Fish : Dieble {
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
-        angle = (Math.Asin((target.y - this.transform.position.y) / Vector3.Distance(this.transform.position, target)) / 3.14f) * 180;
         speed = fishConfig.speed;
 
         targetAngle = CalculateAngle(target);
@@ -135,7 +134,8 @@ public class Fish : Dieble {
         }
         else if(!IsFishMove() && collision.tag == "Weapon")
         {
-            //Weapon weapon = collision.gameObject.GetComponent<Weapon>();
+            Weapon weapon = collision.gameObject.GetComponent<Weapon>();
+            Hit(weapon.config.hitPower);
         }
     }
 
