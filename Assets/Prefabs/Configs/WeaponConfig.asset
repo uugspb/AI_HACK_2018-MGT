@@ -11,3 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4673cabd43b16014ca1434a454f1e2ff, type: 3}
   m_Name: WeaponConfig
   m_EditorClassIdentifier: 
+  hitPower: 1

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   moveAmplitude: 0
-  maxHP: 0
+  maxHP: 1
   gold: 0
-  deathFish: {fileID: 0}
+  deathFish: {fileID: 21300006, guid: 2f0a839e6bbe95840b655e6ec7387395, type: 3}

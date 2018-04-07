@@ -20,11 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4586534658919632}
   - component: {fileID: 212476126177902194}
-  - component: {fileID: 114058488477974834}
-  - component: {fileID: 58145712582866638}
+  - component: {fileID: 114060908565716378}
+  - component: {fileID: 61120284625355056}
   m_Layer: 0
   m_Name: Trap_weapon_1
-  m_TagString: Trap
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,8 +42,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58145712582866638
-CircleCollider2D:
+--- !u!61 &61120284625355056
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -54,10 +54,20 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.017344281, y: 0.033125266}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.43062288, y: 0.032046266}
+    oldSize: {x: 0.25, y: 10.6}
+    newSize: {x: 1.65, y: 11.1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 1.6
---- !u!114 &114058488477974834
+  m_Size: {x: 0.5, y: 1.1}
+  m_EdgeRadius: 0
+--- !u!114 &114060908565716378
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -65,13 +75,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1004633605237542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b1444f0f8ea95b46aebfe365c61ec67, type: 3}
+  m_Script: {fileID: 11500000, guid: 73fef9f87d3477c47880a39ca8f7501d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sinkableID: 0
   sinkTarget: {x: 0, y: 0}
   sinkableConfig: {fileID: 11400000, guid: e70abb3cf4cac5249beba2448ff1933f, type: 2}
-  config: {fileID: 11400000, guid: 674e80dc49990f14e80ea18a9c2ff65d, type: 2}
+  config: {fileID: 11400000, guid: a92e8efb9f46b2446a7df691d20bfb9e, type: 2}
+  isActiveOnFall: 0
 --- !u!212 &212476126177902194
 SpriteRenderer:
   m_ObjectHideFlags: 1
