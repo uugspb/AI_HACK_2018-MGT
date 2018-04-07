@@ -10,6 +10,6 @@ public class FishMind : MonoBehaviour {
 
 	bool CheckTrap(float trapDistance, int trapID)
 	{
-		return false;
+		return true;
 	}
 }
