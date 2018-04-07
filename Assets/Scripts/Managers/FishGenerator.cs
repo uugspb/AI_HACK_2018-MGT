@@ -20,7 +20,7 @@ public class FishGenerator : DiebleEventChecker
 	private float height;
 	private float width;
 
-	private List<Fish> fishList;
+	public List<Fish> fishList;
 
 	private float timeForCreate = 0;
 	private float currentInterval = 1;
