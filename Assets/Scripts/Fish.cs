@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.WSA;
 
 public class DisappearEvent : UnityEvent<Fish>
 {
@@ -16,8 +15,8 @@ public class Fish : Dieble {
     [SerializeField]
     private FishConfig fishConfig;
 
-    public Vector3 target;
-    public FishMind mind;
+    private Vector3 target;
+    private FishMind mind;
     private double targetAngle;
     private float speed;
 
@@ -72,6 +71,16 @@ public class Fish : Dieble {
                 Debug.Log("trapTarget");
             }
         }
+    }
+
+    public void SetTarget(Vector3 target)
+    {
+        this.target = target;
+    }
+
+    public void SetMind(FishMind fishMind) 
+    {
+        this.mind = fishMind;
     }
 
     private double CalculateAngle(Vector3 angleTarget)
