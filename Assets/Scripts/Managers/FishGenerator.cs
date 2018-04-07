@@ -48,9 +48,15 @@ public class FishGenerator : DiebleEventChecker
 		}
 	}
 
-	public void deleteFish(Dieble fish)
+	public void DeleteFish(Dieble fish)
 	{
 		fishList.Remove((Fish)fish);
+	}
+
+	public void DisappearFish(Fish fish)
+	{
+		fishList.Remove((Fish)fish);
+		fishCount++;
 	}
 	
 	public void CreateStartFishes()
@@ -78,7 +84,8 @@ public class FishGenerator : DiebleEventChecker
 		fish.target = target;
 		
 		fishList.Add(fish);
-		fish.RegisterListener(deleteFish);
+		fish.RegisterListener(DeleteFish);
+		fish.RegisterDisappearListener(DisappearFish);
 		
 		fishCount--;
 	}
@@ -116,4 +123,6 @@ public class FishGenerator : DiebleEventChecker
 		
 		CreateStartFishes();
 	}
+	
+	
 }

@@ -2,6 +2,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.WSA;
+
+public class DisappearEvent : UnityEvent<Fish>
+{
+
+}
+
 
 public class Fish : Dieble {
 
@@ -17,6 +25,8 @@ public class Fish : Dieble {
     private bool isFishMove;
     private int currentHP;
 
+    private DisappearEvent m_disappearEvent = new DisappearEvent();
+    
     void OnValidate()
     {
         spriteRenderer = this.GetComponent<SpriteRenderer>();
@@ -40,6 +50,8 @@ public class Fish : Dieble {
                 this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 0, (float)angle);
             else
                 this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 180, (float)angle);
+            
+            CheckDisappear();
         }
     }
 
@@ -79,6 +91,31 @@ public class Fish : Dieble {
         if(collision.tag == "Trap")
         {
             FishStay();
+        }
+    }
+
+    private void CheckDisappear()
+    {
+        float posX = Camera.main.WorldToScreenPoint(transform.position).x;
+        float camWidth = Camera.main.pixelWidth;
+        if((transform.position == target) && (posX<0 || posX>camWidth))
+            Disappear();
+            
+    }
+    
+    public void RegisterDisappearListener(UnityAction<Fish> call)
+    {
+        if (m_disappearEvent != null)
+            m_disappearEvent.AddListener(call);
+    }
+
+    private void Disappear()
+    {
+        if (m_disappearEvent != null)
+        {
+            m_disappearEvent.Invoke(this);
+            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

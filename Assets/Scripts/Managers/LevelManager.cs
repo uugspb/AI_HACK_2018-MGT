@@ -18,8 +18,6 @@ public class LevelManager : MonoBehaviour
 	void Start ()
 	{
 		instance = this;
-
-		levelConfigs = new List<LevelConfig>(levelsCount);
 	}
 
 	public static LevelManager GetI()
