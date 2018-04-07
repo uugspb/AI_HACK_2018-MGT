@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public void Start()
     {
         instance = this;
+        Debug.Log(instance);
     }
 
     public static Sinkable GetSinkableByID(int id)
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour {
 
     public static void SetPlayerSinkable(int sinkableID)
     {
+        Debug.Log("SetPlayerSinkable");
         instance.player.sinkableID = sinkableID;
         instance.player.isTakeSinkable = true;
     }
