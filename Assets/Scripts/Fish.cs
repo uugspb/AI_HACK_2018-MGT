@@ -10,7 +10,7 @@ public class Fish : MonoBehaviour {
 
     public Vector3 target;
 
-    void OnValidate()
+    void Start()
     {
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = fishConfig.kindFish;
