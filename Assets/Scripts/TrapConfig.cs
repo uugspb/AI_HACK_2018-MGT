@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class TrapConfig : ScriptableObject {
 
-    public int trapID;
     public int fishFreezeTime;
     public float liveTime;
 }
