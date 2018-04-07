@@ -9,6 +9,5 @@ public class FishConfig : ScriptableObject {
     public float moveAmplitude;
     public int maxHP;
     public int gold;
-    public Sprite kindFish;
 	
 }
