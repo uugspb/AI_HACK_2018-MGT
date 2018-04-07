@@ -18,19 +18,20 @@ public class Fish : Dieble {
 
     public Vector3 target;
     public FishMind mind;
-    public double angle;
-    public float speed;
+    private double angle;
+    private float speed;
 
     private SpriteRenderer spriteRenderer;
     private bool isFishMove;
     private int currentHP;
+
+    private float currentStayTime;
 
     private DisappearEvent m_disappearEvent = new DisappearEvent();
 
     private void Start()
     {
         angle = (Math.Asin((target.y - this.transform.position.y) / Vector3.Distance(this.transform.position, target)) / 3.14f) * 180;
-        speed = fishConfig.speed;
         FishMove();
     }
 
@@ -46,20 +47,31 @@ public class Fish : Dieble {
             
             CheckDisappear();
         }
+        else
+        {
+            if(currentStayTime < 0)
+            {
+                FishMove();
+            }
+            else
+            {
+                currentStayTime -= Time.deltaTime;
+            }
+        }
     }
 
     void FishMove()
     {
         isFishMove = true;
-
+        speed = fishConfig.speed;
 
     }
 
-    void FishStay()
+    void FishStay(int freezeTime)
     {
         isFishMove = false;
         speed = 0;
-        //анимация в стоячем положении
+        currentStayTime = freezeTime;
     }
 
     bool IsFishMove()
@@ -83,7 +95,12 @@ public class Fish : Dieble {
     {
         if(collision.tag == "Trap")
         {
-            FishStay();
+            Trap trap = collision.gameObject.GetComponent<Trap>();
+            FishStay(trap.config.fishFreezeTime);
+        }
+        else if(!IsFishMove() && collision.tag == "Weapon")
+        {
+            //Weapon weapon = collision.gameObject.GetComponent<Weapon>();
         }
     }
 
