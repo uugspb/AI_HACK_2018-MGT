@@ -26,8 +26,10 @@ public class FishGenerator : DiebleEventChecker
 	private float currentInterval = 1;
 	
 	// Use this for initialization
-	void Start ()
+	protected override void Start ()
 	{
+        base.Start();
+
 		instance = this;
 		fishList = new List<Fish>();
 		
@@ -95,7 +97,7 @@ public class FishGenerator : DiebleEventChecker
 		Vector3 cameraDifference = LevelManager.GetI().GetConfig().cameraPosition-Camera.main.transform.position;
 		cameraDifference.z = 0;
 		Fish fish = Instantiate(fishPrefab, position+cameraDifference, Quaternion.identity).GetComponent<Fish>();
-		fish.target = target;
+		fish.SetTarget(target);
 		
 		fishList.Add(fish);
 		fish.RegisterListener(DeleteFish);
