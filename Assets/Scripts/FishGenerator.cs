@@ -9,29 +9,48 @@ public class FishGenerator : MonoBehaviour
 	[SerializeField] 
 	private GameObject fishPrefab;
 
+	private static FishGenerator instance;
+	
 	public int fishCount;
+	public int maxFishCount;
 	
 	private float height;
 	private float width;
-	
-	
+
+	private List<Fish> fishList;
 	
 	// Use this for initialization
 	void Start ()
 	{
+		instance = this;
+		fishList = new List<Fish>();
+		
 		height = Camera.main.scaledPixelHeight;
 		width = Camera.main.scaledPixelWidth;
 		CreateStartFishes();
 	}
 
+	public static FishGenerator GetI()
+	{
+		return instance;
+	}
+	
 	void Update()
 	{
-		
+		while (fishList.Count < maxFishCount && fishCount > 0)
+		{
+			CreateFish();
+		}
+	}
+
+	public void deleteFish(Fish fish)
+	{
+		fishList.Remove(fish);
 	}
 	
 	public void CreateStartFishes()
 	{
-		for (int i = 0; i < fishCount; i++)
+		for (int i = 0; i < maxFishCount && i <fishCount; i++)
 		{
 			CreateFish();
 		}
@@ -51,5 +70,9 @@ public class FishGenerator : MonoBehaviour
 
 		Fish fish = Instantiate(fishPrefab, position, Quaternion.identity).GetComponent<Fish>();
 		fish.target = target;
+		
+		fishList.Add(fish);
+
+		fishCount--;
 	}
 }
