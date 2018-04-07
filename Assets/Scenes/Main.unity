@@ -600,7 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sinkables:
-  - {fileID: 114058488477974834, guid: f36c8e424c0a151458749ac48df237e4, type: 2}
+  - {fileID: 114310176768371832, guid: f36c8e424c0a151458749ac48df237e4, type: 2}
 --- !u!1 &1882007042
 GameObject:
   m_ObjectHideFlags: 0

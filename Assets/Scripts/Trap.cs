@@ -2,24 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trap : Dieble {
+public class Trap : Sinkable {
 
     public TrapConfig config;
-
-    private float currentLiveTime;
+    private CircleCollider2D triggerCollider;
 
 	// Use this for initialization
 	void Start () {
-        currentLiveTime = config.liveTime;
+        triggerCollider = GetComponent<CircleCollider2D>();
+        triggerCollider.enabled = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if(currentLiveTime < 0)
-        {
-            Die();
-        }
 
-        currentLiveTime -= Time.deltaTime;
-	}
+    public override void Rise()
+    {
+        base.Rise();
+        triggerCollider.enabled = false;
+    }
+
+    public override void Stay()
+    {
+        base.Stay();
+        Debug.Log("TrapStay");
+        triggerCollider.enabled = true;
+    }
 }

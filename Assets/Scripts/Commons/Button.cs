@@ -26,8 +26,7 @@ public class Button : MonoBehaviour {
     {
         if (click)
         {
-            
-            //Debug.Log("Action");
+           
         }
     }
 }
