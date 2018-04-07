@@ -6,4 +6,5 @@ using UnityEngine;
 
 public class SinkableConfig : ScriptableObject {
     public float sinkSpeed;
+    public float stayTime;
 }
