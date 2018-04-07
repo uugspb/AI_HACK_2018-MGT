@@ -93,6 +93,7 @@ public class FishGenerator : DiebleEventChecker
 		position.z = target.z = 0;
 
 		Vector3 cameraDifference = LevelManager.GetI().GetConfig().cameraPosition-Camera.main.transform.position;
+		cameraDifference.z = 0;
 		Fish fish = Instantiate(fishPrefab, position+cameraDifference, Quaternion.identity).GetComponent<Fish>();
 		fish.target = target;
 		
