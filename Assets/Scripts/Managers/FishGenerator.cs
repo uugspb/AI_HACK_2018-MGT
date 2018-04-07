@@ -15,11 +15,15 @@ public class FishGenerator : DiebleEventChecker
 	public int maxFishCount;
 	public float bottomGenBorder;
 	public float topGenBorder;
+	public float maxRandomInterval;
 	
 	private float height;
 	private float width;
 
 	private List<Fish> fishList;
+
+	private float timeForCreate = 0;
+	private float currentInterval = 1;
 	
 	// Use this for initialization
 	void Start ()
@@ -29,7 +33,7 @@ public class FishGenerator : DiebleEventChecker
 		
 		height = Camera.main.scaledPixelHeight;
 		width = Camera.main.scaledPixelWidth;
-		CreateStartFishes();
+		//CreateStartFishes();
 	}
 
 	public static FishGenerator GetI()
@@ -39,15 +43,21 @@ public class FishGenerator : DiebleEventChecker
 	
 	void Update()
 	{
-		while (fishList.Count < maxFishCount && fishCount > 0)
+		timeForCreate += Time.deltaTime;
+		
+		while (fishList.Count < maxFishCount && fishCount > 0 && timeForCreate>=currentInterval)
 		{
 			CreateFish();
+			currentInterval = Random.Range(0, maxRandomInterval);
+			timeForCreate = 0;
 		}
 
 		if (fishCount == 0 && fishList.Count == 0)
 		{
 			nextLevel();
 		}
+
+		
 	}
 
 	public void DeleteFish(Dieble fish)
@@ -61,11 +71,12 @@ public class FishGenerator : DiebleEventChecker
 		fishCount++;
 	}
 	
-	public void CreateStartFishes()
+	void CreateStartFishes()
 	{
-		for (int i = 0; i < maxFishCount && i <fishCount; i++)
+		for (int i = 0; i < maxFishCount && i < fishCount; i++)
 		{
 			CreateFish();
+			
 		}
 	}
 
@@ -123,6 +134,6 @@ public class FishGenerator : DiebleEventChecker
 		fishCount = config.fishCount;
 		maxFishCount = config.maxFishCount;
 		
-		CreateStartFishes();
+		//CreateStartFishes();
 	}
 }
