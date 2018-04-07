@@ -39,8 +39,8 @@ public class Player : MonoBehaviour
         if (
             /* position.x - width / 2.0f > click.x
             && position.x + width / 2.0f < click.x
-            &&*/ position.y - height / 2.0f + bottomHeightBound < click.y
-            && position.y + height / 2.0f - topHeightBound > click.y)
+            &&*/ position.y - height + bottomHeightBound < click.y
+            && position.y + height - topHeightBound > click.y)
             return true;
 
         return false;
