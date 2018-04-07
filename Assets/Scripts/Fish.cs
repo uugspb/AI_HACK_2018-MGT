@@ -23,7 +23,7 @@ public class Fish : Dieble {
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private bool isFishMove;
-    private int currentHP;
+    public int currentHP;
     private bool isDie = false;
 
     private float currentStayTime;
@@ -37,6 +37,7 @@ public class Fish : Dieble {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
         speed = fishConfig.speed;
+        currentHP = fishConfig.maxHP;
 
         targetAngle = CalculateAngle(target);
         FishMove();
@@ -49,7 +50,7 @@ public class Fish : Dieble {
             
             //transform.LookAt(target);
             SetAngle(target, targetAngle);
-            Debug.Log("Target");
+            //Debug.Log("Target");
             CheckDisappear();
         }
         else if (isDie)
@@ -147,6 +148,7 @@ public class Fish : Dieble {
         {
             Weapon weapon = collision.gameObject.GetComponent<Weapon>();
             Hit(weapon.config.hitPower);
+            Debug.Log("weapon");
         }
     }
 
