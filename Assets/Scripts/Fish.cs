@@ -18,7 +18,7 @@ public class Fish : Dieble {
 
     public Vector3 target;
     public FishMind mind;
-    private double angle;
+    private double targetAngle;
     private float speed;
 
     private SpriteRenderer spriteRenderer;
@@ -26,12 +26,14 @@ public class Fish : Dieble {
     private int currentHP;
 
     private float currentStayTime;
+    private double trapAngle;
+    private Vector3 trapTarget;
 
     private DisappearEvent m_disappearEvent = new DisappearEvent();
 
     private void Start()
     {
-        angle = (Math.Asin((target.y - this.transform.position.y) / Vector3.Distance(this.transform.position, target)) / 3.14f) * 180;
+        targetAngle = CalculateAngle(target);
         FishMove();
     }
 
@@ -39,12 +41,9 @@ public class Fish : Dieble {
         if (isFishMove)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, target, speed * Time.deltaTime);
-            this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, this.transform.rotation.y, (float)angle);
-            if (target.x - this.transform.position.x >= 0)
-                this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 0, (float)angle);
-            else
-                this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 180, (float)angle);
-            
+            transform.LookAt(target);
+            //SetAngle(target, targetAngle);
+            Debug.Log("Target");
             CheckDisappear();
         }
         else
@@ -56,8 +55,26 @@ public class Fish : Dieble {
             else
             {
                 currentStayTime -= Time.deltaTime;
+                //SetAngle(trapTarget, trapAngle);
+                transform.LookAt(trapTarget);
+                Debug.Log("trapTarget");
             }
         }
+    }
+
+    private double CalculateAngle(Vector3 angleTarget)
+    {
+        return (Math.Asin((angleTarget.y - this.transform.position.y) 
+            / Vector3.Distance(this.transform.position, angleTarget)) / 3.14f) * 180;
+    }
+
+    private void SetAngle(Vector3 angleTarget, double angle)
+    {
+        this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, this.transform.rotation.y, (float)angle);
+        if (angleTarget.x - this.transform.position.x >= 0)
+            this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 0, (float)angle);
+        else
+            this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 180, (float)angle);
     }
 
     void FishMove()
@@ -96,6 +113,11 @@ public class Fish : Dieble {
         if(collision.tag == "Trap")
         {
             Trap trap = collision.gameObject.GetComponent<Trap>();
+            // Set angle to Trap
+            trapTarget = collision.gameObject.transform.position;
+            //trapAngle = CalculateAngle(collision.gameObject.transform.position);
+            //SetAngle(trapTarget, trapAngle);
+            transform.LookAt(trapTarget);
             FishStay(trap.config.fishFreezeTime);
         }
         else if(!IsFishMove() && collision.tag == "Weapon")
