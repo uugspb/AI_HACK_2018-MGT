@@ -31,12 +31,19 @@ public class LevelManager : MonoBehaviour
 	{
 		if (currentLevel < levelsCount - 1)
 			currentLevel++;
-		Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, levelConfigs[currentLevel].cameraPosition,
-			cameraSpeed * Time.deltaTime);
 	}
 
 	public LevelConfig GetConfig()
 	{
 		return levelConfigs[currentLevel];
+	}
+
+	void Update()
+	{
+		if (Camera.main.transform.position.y > levelConfigs[currentLevel].cameraPosition.y)
+		{
+			Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, levelConfigs[currentLevel].cameraPosition,
+				cameraSpeed * Time.deltaTime);
+		}
 	}
 }
