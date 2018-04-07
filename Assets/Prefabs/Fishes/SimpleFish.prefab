@@ -21,6 +21,9 @@ GameObject:
   - component: {fileID: 4949776245355282}
   - component: {fileID: 114960121899185860}
   - component: {fileID: 212504644071641190}
+  - component: {fileID: 70003676676548488}
+  - component: {fileID: 50798876816724790}
+  - component: {fileID: 111913580603008014}
   m_Layer: 0
   m_Name: SimpleFish
   m_TagString: Untagged
@@ -41,6 +44,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50798876816724790
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1581781341738824}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &70003676676548488
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1581781341738824}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.48, y: 0.21}
+  m_Direction: 0
+--- !u!111 &111913580603008014
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1581781341738824}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114960121899185860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,6 +106,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishConfig: {fileID: 11400000, guid: bda7f53de679799439f11dedecf44d3a, type: 2}
   target: {x: 0, y: 0, z: 0}
+  mind: {fileID: 0}
+  angle: 0
+  speed: 2
 --- !u!212 &212504644071641190
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -88,9 +143,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2f0a839e6bbe95840b655e6ec7387395, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 2f0a839e6bbe95840b655e6ec7387395, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.48, y: 0.21}
