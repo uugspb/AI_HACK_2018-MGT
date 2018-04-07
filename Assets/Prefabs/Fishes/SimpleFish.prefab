@@ -110,8 +110,6 @@ MonoBehaviour:
   fishConfig: {fileID: 11400000, guid: bda7f53de679799439f11dedecf44d3a, type: 2}
   target: {x: 0, y: 0, z: 0}
   mind: {fileID: 0}
-  angle: 0
-  speed: 6
 --- !u!212 &212504644071641190
 SpriteRenderer:
   m_ObjectHideFlags: 1
