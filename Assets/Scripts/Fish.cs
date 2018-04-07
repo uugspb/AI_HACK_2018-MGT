@@ -26,12 +26,6 @@ public class Fish : Dieble {
     private int currentHP;
 
     private DisappearEvent m_disappearEvent = new DisappearEvent();
-    
-    void OnValidate()
-    {
-        spriteRenderer = this.GetComponent<SpriteRenderer>();
-        //spriteRenderer.sprite = fishConfig.kindFish;
-    }
 
     private void Start()
     {
