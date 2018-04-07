@@ -10,30 +10,27 @@ public class Sinkable : Dieble {
     public SinkableConfig sinkableConfig;
 
     private Vector3 previousPosition;
-    private SinkableStateEnum state = SinkableStateEnum.NONE;
+    protected SinkableStateEnum state = SinkableStateEnum.NONE;
     private float currentStayTime;
 
     public void Sink()
     {
+        Debug.Log("Sinking");
         state = SinkableStateEnum.SINKING;
         previousPosition = transform.position;
     }
 
-    public void Stay()
+    public virtual void Stay()
     {
         state = SinkableStateEnum.STAYING;
         currentStayTime = sinkableConfig.stayTime;
     }
 
-    public void Rise()
+    public virtual void Rise()
     {
+        Debug.Log("Rising");
         state = SinkableStateEnum.RISING;
     }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -41,7 +38,6 @@ public class Sinkable : Dieble {
         {
             if (sinkTarget.y < transform.position.y)
             {
-                Debug.Log("Sinking");
                 transform.position = Vector3.MoveTowards(transform.position, sinkTarget, sinkableConfig.sinkSpeed * Time.deltaTime);
             }
             else
@@ -61,7 +57,7 @@ public class Sinkable : Dieble {
         {
             if (previousPosition.y > transform.position.y)
             {
-                Debug.Log("Rising");
+                
                 transform.position = Vector3.MoveTowards(transform.position, previousPosition, sinkableConfig.sinkSpeed * Time.deltaTime);
             }
             else
