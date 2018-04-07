@@ -828,6 +828,7 @@ MonoBehaviour:
   maxFishCount: 30
   bottomGenBorder: 0.2
   topGenBorder: 0.9
+  maxRandomInterval: 0.5
 --- !u!4 &1882007044
 Transform:
   m_ObjectHideFlags: 0
