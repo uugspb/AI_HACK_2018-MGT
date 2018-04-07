@@ -22,6 +22,7 @@ public class Fish : Dieble {
     public float speed;
 
     private SpriteRenderer spriteRenderer;
+    private Animator animator;
     private bool isFishMove;
     private int currentHP;
 
@@ -29,6 +30,8 @@ public class Fish : Dieble {
 
     private void Start()
     {
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        animator = gameObject.GetComponent<Animator>();
         angle = (Math.Asin((target.y - this.transform.position.y) / Vector3.Distance(this.transform.position, target)) / 3.14f) * 180;
         speed = fishConfig.speed;
         FishMove();
@@ -108,6 +111,18 @@ public class Fish : Dieble {
             m_disappearEvent.Invoke(this);
             gameObject.SetActive(false);
             Destroy(gameObject);
+        }
+    }
+
+    public override void Die()
+    {
+        if (!isFishMove)
+        {
+            animator.enabled = false;
+            spriteRenderer.sprite = fishConfig.deathFish;
+            transform.Translate(Vector3.down * Time.deltaTime * speed);
+            if (this.transform.position.y < -20)
+                Destroy(gameObject);
         }
     }
 }
