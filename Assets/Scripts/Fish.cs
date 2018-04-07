@@ -25,6 +25,7 @@ public class Fish : Dieble {
     private Animator animator;
     private bool isFishMove;
     private int currentHP;
+    private bool isDie = false;
 
     private DisappearEvent m_disappearEvent = new DisappearEvent();
 
@@ -46,8 +47,12 @@ public class Fish : Dieble {
                 this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 0, (float)angle);
             else
                 this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 180, (float)angle);
-            
+
             CheckDisappear();
+        }
+        else if (isDie)
+        {
+            transform.Translate(Vector3.down * Time.deltaTime);
         }
     }
 
@@ -62,6 +67,7 @@ public class Fish : Dieble {
     {
         isFishMove = false;
         speed = 0;
+        Die();
     }
 
     bool IsFishMove()
@@ -120,9 +126,7 @@ public class Fish : Dieble {
         {
             animator.enabled = false;
             spriteRenderer.sprite = fishConfig.deathFish;
-            transform.Translate(Vector3.down * Time.deltaTime * speed);
-            if (this.transform.position.y < -20)
-                Destroy(gameObject);
+            isDie = true;
         }
     }
 }
