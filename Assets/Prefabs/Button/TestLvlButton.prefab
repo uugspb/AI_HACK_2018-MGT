@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4826735306366112}
   - component: {fileID: 212741856966005176}
   - component: {fileID: 58132898556673420}
-  - component: {fileID: 114283353273479704}
+  - component: {fileID: 114871535339177362}
   m_Layer: 0
   m_Name: TestLvlButton
   m_TagString: Untagged
@@ -57,7 +57,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!114 &114283353273479704
+--- !u!114 &114871535339177362
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -65,11 +65,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1796712250206796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b79037075343745bbad32514d08cdb, type: 3}
+  m_Script: {fileID: 11500000, guid: a14638eece81afa409bb245fdee2bcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   click: 0
-  sinkableID: 0
 --- !u!212 &212741856966005176
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a61b5e8bc1b0408438cdbaf9787f99e6, type: 3}
-  m_Name: FirstLevelConfig
+  m_Name: SecondLevelConfig
   m_EditorClassIdentifier: 
-  cameraPosition: {x: 0, y: 0, z: 0}
-  fishCount: 0
-  maxFishCount: 0
+  cameraPosition: {x: 0, y: -12.5, z: -100}
+  fishCount: 40
+  maxFishCount: 40
