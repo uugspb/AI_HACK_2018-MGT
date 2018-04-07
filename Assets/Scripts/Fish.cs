@@ -71,6 +71,7 @@ void FishMove()
         if(collision.tag == "Trap")
         {
             speed = 0;
+            FishStay();
         }
     }
 }
