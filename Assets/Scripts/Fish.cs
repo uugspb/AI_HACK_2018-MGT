@@ -21,9 +21,9 @@ public class Fish : Dieble {
         this.transform.position = Vector3.MoveTowards(this.transform.position, target, fishConfig.speed * Time.deltaTime);
         this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, this.transform.rotation.y, target.y*10);
         if (target.x-this.transform.position.x >= 0)
-            this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 180, this.transform.rotation.z);
+            this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 0, target.y * 10);
         else
-            this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 0, this.transform.rotation.z);
+            this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 180, target.y * 10);
     }
 
     Vector3 getPosition()
