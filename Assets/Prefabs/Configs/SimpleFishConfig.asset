@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539a179276e74c44e81f10b11137e217, type: 3}
   m_Name: SimpleFishConfig
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 6
   moveAmplitude: 0
   maxHP: 0
   gold: 0
