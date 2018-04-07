@@ -20,14 +20,13 @@ public class Fish : Dieble {
     void OnValidate()
     {
         spriteRenderer = this.GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = fishConfig.kindFish;
-
-        speed = fishConfig.speed;
+        //spriteRenderer.sprite = fishConfig.kindFish;
     }
 
     private void Start()
     {
         angle = (Math.Asin((target.y - this.transform.position.y) / Vector3.Distance(this.transform.position, target)) / 3.14f) * 180;
+        speed = fishConfig.speed;
         FishMove();
     }
 
