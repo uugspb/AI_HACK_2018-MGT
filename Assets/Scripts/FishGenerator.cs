@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class FishGenerator : MonoBehaviour
+public class FishGenerator : DiebleEventChecker
 {
 	[SerializeField] 
 	private GameObject fishPrefab;
@@ -43,9 +43,9 @@ public class FishGenerator : MonoBehaviour
 		}
 	}
 
-	public void deleteFish(Fish fish)
+	public void deleteFish(Dieble fish)
 	{
-		fishList.Remove(fish);
+		fishList.Remove((Fish)fish);
 	}
 	
 	public void CreateStartFishes()
@@ -72,7 +72,8 @@ public class FishGenerator : MonoBehaviour
 		fish.target = target;
 		
 		fishList.Add(fish);
-
+		fish.RegisterListener(deleteFish);
+		
 		fishCount--;
 	}
 }
