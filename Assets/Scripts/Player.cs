@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 		{
 			Vector3 clickPos = GetPosition();
 			SinkableGenerator.GetI().Generate(clickPos,sinkableID);
+			isTakeSinkable = false;
 		}
 		
 	}
