@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class FishGenerator : MonoBehaviour
+public class FishGenerator : DiebleEventChecker
 {
 	[SerializeField] 
 	private GameObject fishPrefab;
@@ -43,9 +43,9 @@ public class FishGenerator : MonoBehaviour
 		}
 	}
 
-	public void deleteFish(Fish fish)
+	public void deleteFish(Dieble fish)
 	{
-		fishList.Remove(fish);
+		fishList.Remove((Fish)fish);
 	}
 	
 	public void CreateStartFishes()
@@ -72,7 +72,31 @@ public class FishGenerator : MonoBehaviour
 		fish.target = target;
 		
 		fishList.Add(fish);
-
+		fish.RegisterListener(deleteFish);
+		
 		fishCount--;
+	}
+
+	public Fish getFish(Vector3 clickPosition)
+	{
+		foreach (Fish fish in fishList)
+		{
+			Vector2 size = fish.GetComponent<SpriteRenderer>().size;
+			if (checkBox(size.y, size.x, fish.transform.position, clickPosition))
+				return fish;
+		}
+
+		return null;
+	}
+
+	private bool checkBox(float height, float width, Vector3 position, Vector3 click)
+	{
+		if (position.x - width / 2.0f < click.x
+		    && position.x + width / 2.0f > click.x
+		    && position.y - height / 2.0f < click.y
+		    && position.y + height / 2.0f > click.y)
+			return true;
+		
+		return false;
 	}
 }
