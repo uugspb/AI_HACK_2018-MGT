@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212373483920600000}
   - component: {fileID: 114726600029542794}
   m_Layer: 0
-  m_Name: FishTest
+  m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,10 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae064e5eeee9d3459647683831c3fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishConfig: {fileID: 0}
+  FishConfig: {fileID: 11400000, guid: 9525a09f42232c54f89a90fdb8b93fd9, type: 2}
   target: {x: 0, y: 0, z: 0}
-  mind: {fileID: 0}
-  angle: 0
 --- !u!212 &212373483920600000
 SpriteRenderer:
   m_ObjectHideFlags: 1

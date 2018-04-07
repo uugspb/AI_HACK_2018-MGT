@@ -16,10 +16,16 @@ public class Button : MonoBehaviour {
         click = false;
     }
 
+    protected virtual void OnMouseClicked()
+    {
+
+    }
+
     private void Update()
     {
         if (click)
         {
+            OnMouseClicked();
             Debug.Log("Action");
         }
     }
