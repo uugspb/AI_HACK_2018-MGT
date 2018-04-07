@@ -53,6 +53,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sinkableID: 0
+  sinkTarget: {x: 0, y: 0}
+  sinkableConfig: {fileID: 11400000, guid: e70abb3cf4cac5249beba2448ff1933f, type: 2}
 --- !u!212 &212476126177902194
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -20,9 +20,10 @@ public class Sinkable : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isSinking && sinkTarget.y > transform.position.y)
+        if (isSinking && sinkTarget.y < transform.position.y)
         {
-            Vector2.MoveTowards(transform.position, sinkTarget, sinkableConfig.sinkSpeed * Time.deltaTime);
+            Debug.Log("Sinking");
+            transform.position = Vector3.MoveTowards(transform.position, sinkTarget, sinkableConfig.sinkSpeed * Time.deltaTime);
         }
 	}
 }

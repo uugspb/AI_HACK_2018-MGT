@@ -14,6 +14,7 @@ public class Button : MonoBehaviour {
     private void OnMouseUp()
     {
         click = false;
+        OnMouseClicked();
     }
 
     protected virtual void OnMouseClicked()
@@ -25,8 +26,8 @@ public class Button : MonoBehaviour {
     {
         if (click)
         {
-            OnMouseClicked();
-            Debug.Log("Action");
+            
+            //Debug.Log("Action");
         }
     }
 }
