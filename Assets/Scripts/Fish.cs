@@ -29,7 +29,7 @@ public class Fish : Dieble {
 
     private float currentStayTime;
     private double trapAngle;
-    private Transform trapTarget;
+    private Vector3 trapTarget;
 
     private DisappearEvent m_disappearEvent = new DisappearEvent();
 
