@@ -63,6 +63,7 @@ public class Sinkable : Dieble {
             else
             {
                 Die();
+                fullDestroy();
             }
         }
 	}

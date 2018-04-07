@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.WSA;
 
 public class DisappearEvent : UnityEvent<Fish>
 {
@@ -16,15 +15,15 @@ public class Fish : Dieble {
     [SerializeField]
     private FishConfig fishConfig;
 
-    public Vector3 target;
-    public FishMind mind;
+    private Vector3 target;
+    private FishMind mind;
     private double targetAngle;
     private float speed;
 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private bool isFishMove;
-    private int currentHP;
+    public int currentHP;
     private bool isDie = false;
 
     private float currentStayTime;
@@ -38,6 +37,7 @@ public class Fish : Dieble {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
         speed = fishConfig.speed;
+        currentHP = fishConfig.maxHP;
 
         targetAngle = CalculateAngle(target);
         FishMove();
@@ -50,7 +50,7 @@ public class Fish : Dieble {
             
             //transform.LookAt(target);
             SetAngle(target, targetAngle);
-            Debug.Log("Target");
+            //Debug.Log("Target");
             CheckDisappear();
         }
         else if (isDie)
@@ -74,6 +74,16 @@ public class Fish : Dieble {
                 Debug.Log("trapTarget");
             }
         }
+    }
+
+    public void SetTarget(Vector3 target)
+    {
+        this.target = target;
+    }
+
+    public void SetMind(FishMind fishMind) 
+    {
+        this.mind = fishMind;
     }
 
     private double CalculateAngle(Vector3 angleTarget)
@@ -140,6 +150,7 @@ public class Fish : Dieble {
         {
             Weapon weapon = collision.gameObject.GetComponent<Weapon>();
             Hit(weapon.config.hitPower);
+            Debug.Log("weapon");
         }
     }
 

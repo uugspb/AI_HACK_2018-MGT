@@ -8,11 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 539a179276e74c44e81f10b11137e217, type: 3}
-  m_Name: SimpleFishConfig
+  m_Script: {fileID: 11500000, guid: 4673cabd43b16014ca1434a454f1e2ff, type: 3}
+  m_Name: WeaponConfig
   m_EditorClassIdentifier: 
-  speed: 1.5
-  moveAmplitude: 0
-  maxHP: 1
-  gold: 0
-  deathFish: {fileID: 21300006, guid: 2f0a839e6bbe95840b655e6ec7387395, type: 3}
+  hitPower: 1
