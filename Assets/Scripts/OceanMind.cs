@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class OceanMind : MonoBehaviour
 {
-	[SerializeField]
+    private static OceanMind instance;
 	private List<float> trapProbabilityList;
 	
-	public int trapsCount;
 	public float startProbablility;
+    public int trapsCount;
 
-	public static FishMind GetCurrentFishMind()
+    private void Start()
+    {
+        instance = this;
+        trapProbabilityList = new List<float>(trapsCount);
+        for(int i = 0; i < trapsCount; i++)
+        {
+            trapProbabilityList[i] = startProbablility;
+        }
+    }
+
+    public static FishMind GetCurrentFishMind()
 	{
-		return new FishMind();
+		return new FishMind(instance.trapProbabilityList);
 	}
 }
