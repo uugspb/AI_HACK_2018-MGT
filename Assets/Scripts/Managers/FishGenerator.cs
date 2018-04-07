@@ -41,11 +41,22 @@ public class FishGenerator : DiebleEventChecker
 		{
 			CreateFish();
 		}
+
+		if (fishCount == 0 && fishList.Count == 0)
+		{
+			nextLevel();
+		}
 	}
 
-	public void deleteFish(Dieble fish)
+	public void DeleteFish(Dieble fish)
 	{
 		fishList.Remove((Fish)fish);
+	}
+
+	public void DisappearFish(Fish fish)
+	{
+		fishList.Remove((Fish)fish);
+		fishCount++;
 	}
 	
 	public void CreateStartFishes()
@@ -68,11 +79,13 @@ public class FishGenerator : DiebleEventChecker
 		target.x *= 1.1f;
 		position.z = target.z = 0;
 
-		Fish fish = Instantiate(fishPrefab, position, Quaternion.identity).GetComponent<Fish>();
+		Vector3 cameraDifference = LevelManager.GetI().GetConfig().cameraPosition-Camera.main.transform.position;
+		Fish fish = Instantiate(fishPrefab, position+cameraDifference, Quaternion.identity).GetComponent<Fish>();
 		fish.target = target;
 		
 		fishList.Add(fish);
-		fish.RegisterListener(deleteFish);
+		fish.RegisterListener(DeleteFish);
+		fish.RegisterDisappearListener(DisappearFish);
 		
 		fishCount--;
 	}
@@ -99,4 +112,17 @@ public class FishGenerator : DiebleEventChecker
 		
 		return false;
 	}
+
+	public void nextLevel()
+	{
+		LevelManager.GetI().nextLevel();
+		LevelConfig config = LevelManager.GetI().GetConfig();
+
+		fishCount = config.fishCount;
+		maxFishCount = config.maxFishCount;
+		
+		CreateStartFishes();
+	}
+	
+	
 }
