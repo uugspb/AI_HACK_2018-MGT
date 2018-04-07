@@ -13,6 +13,8 @@ public class FishGenerator : DiebleEventChecker
 	
 	public int fishCount;
 	public int maxFishCount;
+	public float bottomGenBorder;
+	public float topGenBorder;
 	
 	private float height;
 	private float width;
@@ -70,8 +72,8 @@ public class FishGenerator : DiebleEventChecker
 	private void CreateFish()
 	{
 		int side = Random.Range(0, 2);
-		float startPos = Random.Range(0, height);
-		float targetPos = Random.Range(0, height);
+		float startPos = Random.Range(height*bottomGenBorder, height*topGenBorder);
+		float targetPos = Random.Range(height*bottomGenBorder, height*topGenBorder);
 
 		Vector3 position = Camera.main.ScreenToWorldPoint(new Vector3(side*width,startPos));
 		Vector3 target =  Camera.main.ScreenToWorldPoint(new Vector3(side == 0 ? width : 0 , targetPos));
@@ -123,6 +125,4 @@ public class FishGenerator : DiebleEventChecker
 		
 		CreateStartFishes();
 	}
-	
-	
 }
