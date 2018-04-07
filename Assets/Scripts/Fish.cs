@@ -22,8 +22,10 @@ public class Fish : Dieble {
     private float speed;
 
     private SpriteRenderer spriteRenderer;
+    private Animator animator;
     private bool isFishMove;
     private int currentHP;
+    private bool isDie = false;
 
     private float currentStayTime;
     private double trapAngle;
@@ -33,6 +35,11 @@ public class Fish : Dieble {
 
     private void Start()
     {
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        animator = gameObject.GetComponent<Animator>();
+        angle = (Math.Asin((target.y - this.transform.position.y) / Vector3.Distance(this.transform.position, target)) / 3.14f) * 180;
+        speed = fishConfig.speed;
+
         targetAngle = CalculateAngle(target);
         FishMove();
     }
@@ -41,11 +48,16 @@ public class Fish : Dieble {
         if (isFishMove)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, target, speed * Time.deltaTime);
+            
             transform.LookAt(target);
             //SetAngle(target, targetAngle);
             Debug.Log("Target");
             CheckDisappear();
         }
+        else if (isDie)
+        {
+            transform.Translate(Vector3.down * Time.deltaTime);
+        } 
         else
         {
             if(currentStayTime < 0)
@@ -88,6 +100,7 @@ public class Fish : Dieble {
     {
         isFishMove = false;
         speed = 0;
+
         currentStayTime = freezeTime;
     }
 
@@ -148,6 +161,16 @@ public class Fish : Dieble {
             m_disappearEvent.Invoke(this);
             gameObject.SetActive(false);
             Destroy(gameObject);
+        }
+    }
+
+    public override void Die()
+    {
+        if (!isFishMove)
+        {
+            animator.enabled = false;
+            spriteRenderer.sprite = fishConfig.deathFish;
+            isDie = true;
         }
     }
 }
