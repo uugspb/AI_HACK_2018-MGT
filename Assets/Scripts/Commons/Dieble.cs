@@ -26,7 +26,7 @@ public class Dieble : MonoBehaviour {
             m_diebleEvent.AddListener(call);
     }
 
-    protected void Die()
+    public virtual void Die()
     {
         PrepareToDie();
         InvokeEvent();
