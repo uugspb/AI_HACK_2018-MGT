@@ -455,6 +455,8 @@ MonoBehaviour:
   sinkableID: 0
   hitPower: 10
   isTakeSinkable: 0
+  bottomHeightBound: 0.02
+  topHeightBound: 0.002
 --- !u!4 &966794899
 Transform:
   m_ObjectHideFlags: 0
