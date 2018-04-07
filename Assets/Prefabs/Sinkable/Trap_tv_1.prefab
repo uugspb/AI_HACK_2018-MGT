@@ -20,13 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4586534658919632}
   - component: {fileID: 212476126177902194}
-<<<<<<< HEAD
   - component: {fileID: 114058488477974834}
   - component: {fileID: 58145712582866638}
-=======
-  - component: {fileID: 58223527027658352}
-  - component: {fileID: 114310176768371832}
->>>>>>> 3182fc6a88ee17fc92cbb56a3115de31bbf1a5b5
   m_Layer: 0
   m_Name: Trap_tv_1
   m_TagString: Trap
@@ -47,11 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!58 &58145712582866638
-=======
---- !u!58 &58223527027658352
->>>>>>> 3182fc6a88ee17fc92cbb56a3115de31bbf1a5b5
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -63,17 +54,10 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-<<<<<<< HEAD
-  m_Offset: {x: 0.026015878, y: 0.13024783}
-  serializedVersion: 2
-  m_Radius: 1.6044341
---- !u!114 &114058488477974834
-=======
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.7
---- !u!114 &114310176768371832
->>>>>>> 3182fc6a88ee17fc92cbb56a3115de31bbf1a5b5
+  m_Radius: 1.6
+--- !u!114 &114058488477974834
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
