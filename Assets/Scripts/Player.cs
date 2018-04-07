@@ -4,24 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
+	public int sinkableID;
 	public int hitPower;
+	public bool isTakeSinkable;
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (isTakeSinkable && Input.GetMouseButtonDown(0))
 		{
 			Vector3 clickPos = GetPosition();
-			Fish fish = FishGenerator.GetI().getFish(clickPos);
-			if (fish == null)
-				return;
-
-			if (!fish.IsFishMove())
-			{
-				fish.Hit(hitPower);
-			}
-				
+			SinkableGenerator.GetI().Generate(clickPos,sinkableID);
 		}
 		
 	}
