@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="FishConfig", menuName ="Create FishConfig")]
 
 public class FishConfig : ScriptableObject {
-    public float probability;
+    public float ungleOfMoving;
+    public int money;
     public float speed;
     public Sprite kindFish;
 	
