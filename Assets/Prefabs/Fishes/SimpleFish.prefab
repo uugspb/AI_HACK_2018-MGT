@@ -45,6 +45,7 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50798876816724790
+--- !u!50 &50316679582138802
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
