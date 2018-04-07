@@ -41,8 +41,8 @@ public class Fish : Dieble {
         if (isFishMove)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, target, speed * Time.deltaTime);
-            transform.LookAt(target);
-            //SetAngle(target, targetAngle);
+            //transform.LookAt(target);
+            SetAngle(target, targetAngle);
             Debug.Log("Target");
             CheckDisappear();
         }
@@ -55,8 +55,9 @@ public class Fish : Dieble {
             else
             {
                 currentStayTime -= Time.deltaTime;
-                //SetAngle(trapTarget, trapAngle);
-                transform.LookAt(trapTarget);
+                //trapAngle = CalculateAngle(trapTarget);
+                SetAngle(trapTarget, trapAngle);
+                //transform.LookAt(trapTarget);
                 Debug.Log("trapTarget");
             }
         }
@@ -117,7 +118,8 @@ public class Fish : Dieble {
             trapTarget = collision.gameObject.transform.position;
             //trapAngle = CalculateAngle(collision.gameObject.transform.position);
             //SetAngle(trapTarget, trapAngle);
-            transform.LookAt(trapTarget);
+            //transform.LookAt(trapTarget);
+            trapAngle = CalculateAngle(trapTarget);
             FishStay(trap.config.fishFreezeTime);
         }
         else if(!IsFishMove() && collision.tag == "Weapon")
