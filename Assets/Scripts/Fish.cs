@@ -11,6 +11,7 @@ public class Fish : Dieble {
     public Vector3 target;
     public FishMind mind;
     public double angle;
+    public float speed;
 
     private SpriteRenderer spriteRenderer;
     private bool isFishMove;
@@ -20,37 +21,40 @@ public class Fish : Dieble {
     {
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = fishConfig.kindFish;
+
+        speed = fishConfig.speed;
     }
 
     private void Start()
     {
         angle = (Math.Asin((target.y - this.transform.position.y) / Vector3.Distance(this.transform.position, target)) / 3.14f) * 180;
+        FishMove();
     }
 
     void Update () {
-        //target = getPosition();
-        this.transform.position = Vector3.MoveTowards(this.transform.position, target, fishConfig.speed * Time.deltaTime);
-        this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, this.transform.rotation.y, (float)angle);
-        if (target.x-this.transform.position.x >= 0)
-            this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 0, (float)angle);
-        else
-            this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 180, (float)angle);
+        if (isFishMove)
+        {
+            this.transform.position = Vector3.MoveTowards(this.transform.position, target, speed * Time.deltaTime);
+            this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, this.transform.rotation.y, (float)angle);
+            if (target.x - this.transform.position.x >= 0)
+                this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 0, (float)angle);
+            else
+                this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 180, (float)angle);
+        }
     }
 
-    Vector3 getPosition()
-    {
-        Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1);
-        return Camera.main.ScreenToWorldPoint(position);
-    }
-
-void FishMove()
+    void FishMove()
     {
         isFishMove = true;
+
+
     }
 
     void FishStay()
     {
         isFishMove = false;
+        speed = 0;
+        //анимация в стоячем положении
     }
 
     bool IsFishMove()
@@ -68,5 +72,13 @@ void FishMove()
     {
         if (currentHP <= 0)
             Die();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Trap")
+        {
+            FishStay();
+        }
     }
 }
