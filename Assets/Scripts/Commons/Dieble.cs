@@ -29,9 +29,6 @@ public class Dieble : MonoBehaviour {
     public virtual void Die()
     {
         PrepareToDie();
-        InvokeEvent();
-        gameObject.SetActive(false);
-        Destroy(gameObject);
     }
 	
     public virtual void ReceiveKill()
@@ -41,6 +38,13 @@ public class Dieble : MonoBehaviour {
 
     protected virtual void PrepareToDie()
     {
+        
+    }
 
+    public virtual void fullDestroy()
+    {
+        InvokeEvent();
+        gameObject.SetActive(false);
+        Destroy(this);
     }
 }

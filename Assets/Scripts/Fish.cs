@@ -56,6 +56,8 @@ public class Fish : Dieble {
         else if (isDie)
         {
             transform.Translate(Vector3.down * Time.deltaTime);
+            if(Camera.main.WorldToScreenPoint(transform.position).y<0)
+                fullDestroy();
         } 
         else
         {
@@ -168,11 +170,9 @@ public class Fish : Dieble {
 
     public override void Die()
     {
-        if (!isFishMove)
-        {
-            animator.enabled = false;
-            spriteRenderer.sprite = fishConfig.deathFish;
-            isDie = true;
-        }
+        animator.enabled = false;
+        spriteRenderer.sprite = fishConfig.deathFish;
+        isDie = true;
+        isFishMove = false;
     }
 }
