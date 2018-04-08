@@ -52,4 +52,6 @@ public class LevelManager : MonoBehaviour
 				cameraSpeed * Time.deltaTime);
 		}
 	}
+	
+	
 }

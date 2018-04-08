@@ -40,6 +40,7 @@
           <e p="Managers" t="Include">
             <e p="FishGenerator.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
+            <e p="IconsManager.cs" t="Include" />
             <e p="LevelManager.cs" t="Include" />
             <e p="MusicManager.cs" t="Include" />
             <e p="Player.cs" t="Include" />
