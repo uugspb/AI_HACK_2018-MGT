@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114058488477974834}
   - component: {fileID: 58145712582866638}
   m_Layer: 0
-  m_Name: Trap_tv_1
+  m_Name: Trap_tv_7
   m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: ef54caaa9fc0b284b838dbab783f5fce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3db2fd76de6ca7d4d82b869c12e5bbf2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
