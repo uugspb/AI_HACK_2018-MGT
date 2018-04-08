@@ -76,7 +76,7 @@ public class FishGenerator : DiebleEventChecker
 	{
 		float targetPos = Random.Range(height*bottomGenBorder, height*topGenBorder);
 		Vector3 target;
-		if (fish.transform.position.x > 0)
+		if (fish.GetTarget().x > 0)
 		{
 			target = Camera.main.ScreenToWorldPoint(new Vector3(-0.1f*width , targetPos));
 		}

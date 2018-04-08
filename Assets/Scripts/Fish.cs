@@ -88,6 +88,11 @@ public class Fish : Dieble {
         this.target = target;
     }
 
+    public Vector3 GetTarget()
+    {
+        return target;
+    }
+
     public void SetMind(FishMind fishMind) 
     {
         this.mind = fishMind;
@@ -128,9 +133,10 @@ public class Fish : Dieble {
         return isFishMove;
     }
 
-    public void Hit(int hitPower)
+    public void Hit(int hitPower, int weaponID)
     {
         currentHP -= hitPower;
+        weaponKillerID = weaponID;
         CheckHP();
     }
 
@@ -158,8 +164,19 @@ public class Fish : Dieble {
         else if(!IsFishMove() && collision.tag == "Weapon")
         {
             Weapon weapon = collision.gameObject.GetComponent<Weapon>();
-            Hit(weapon.config.hitPower);
+            Hit(weapon.config.hitPower, weapon.sinkableID);
             Debug.Log("weapon");
+        }
+        
+        else if (collision.tag == "Weapon")
+        {
+            Weapon weapon = collision.gameObject.GetComponent<Weapon>();
+            if ((weapon.mustExploseBeforeRise || weapon.isActiveOnFall || !weapon.mustRise) &&
+                !mind.CheckTrap(Vector2.Distance(transform.position, weapon.transform.position), weapon.sinkableID))
+            {
+                Disappear();
+                Debug.Log("escape");
+            }
         }
     }
 
@@ -189,10 +206,16 @@ public class Fish : Dieble {
     public override void Die()
     {
         OceanMind.LearnTrap(trapKillerID);
-
+        OceanMind.LearnTrap(weaponKillerID);
+        
         animator.enabled = false;
         spriteRenderer.sprite = fishConfig.deathFish;
         isDie = true;
         isFishMove = false;
+    }
+
+    public void ChangeDirection()
+    {
+        Disappear();
     }
 }

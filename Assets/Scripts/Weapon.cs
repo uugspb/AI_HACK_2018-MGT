@@ -57,7 +57,7 @@ public class Weapon : Sinkable {
             {
                 Debug.Log("Fish Explosion");
                 Fish fish = raycast.collider.gameObject.GetComponent<Fish>();
-                fish.Hit(config.hitPower);
+                fish.Hit(config.hitPower, sinkableID);
             }
         }
     }
