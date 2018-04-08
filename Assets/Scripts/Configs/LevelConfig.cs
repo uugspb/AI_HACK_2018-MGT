@@ -9,6 +9,6 @@ public class LevelConfig : ScriptableObject
     public Vector3 cameraPosition;
     public int fishCount;
     public int maxFishCount;
-    public Fish fishPrefab;
+    public GameObject fishPrefab;
     public int musicID;
 }

@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Name: FoursLevelConfig
   m_EditorClassIdentifier: 
   cameraPosition: {x: 0, y: -58.4, z: -100}
-  fishCount: 50
-  maxFishCount: 50
+  fishCount: 1
+  maxFishCount: 1
+  fishPrefab: {fileID: 1581781341738824, guid: e3feedfd384a15b4f90c6bb9830eea47, type: 2}
+  musicID: 3

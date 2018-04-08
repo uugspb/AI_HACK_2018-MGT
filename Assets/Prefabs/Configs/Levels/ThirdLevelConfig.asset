@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Name: ThirdLevelConfig
   m_EditorClassIdentifier: 
   cameraPosition: {x: 0, y: -42, z: -100}
-  fishCount: 50
-  maxFishCount: 50
+  fishCount: 15
+  maxFishCount: 15
+  fishPrefab: {fileID: 1581781341738824, guid: 882a32db3c90dc64fa8f0e649242c0aa, type: 2}
+  musicID: 2

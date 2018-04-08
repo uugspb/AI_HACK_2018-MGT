@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 50316679582138802}
   - component: {fileID: 95526008592247498}
   m_Layer: 0
-  m_Name: SimpleFish
+  m_Name: SecondFish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1581781341738824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.364758, y: -0.22574466, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -47,7 +47,7 @@ Transform:
 --- !u!50 &50316679582138802
 Rigidbody2D:
   serializedVersion: 4
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1581781341738824}
@@ -76,9 +76,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.48, y: 0.21}
-  m_Direction: 0
+  m_Offset: {x: 0.046765212, y: -0.00000057181904}
+  m_Size: {x: 0.8469225, y: 0.34330818}
+  m_Direction: 1
 --- !u!95 &95526008592247498
 Animator:
   serializedVersion: 3
@@ -88,7 +88,7 @@ Animator:
   m_GameObject: {fileID: 1581781341738824}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f3d0b2345f1b509429c1a6f44e46f34d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 31619426f6860984eae9eaf2e867750f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae064e5eeee9d3459647683831c3fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishConfig: {fileID: 11400000, guid: bda7f53de679799439f11dedecf44d3a, type: 2}
+  fishConfig: {fileID: 11400000, guid: 5f28b56c34e7f0a4eb98df9970546cb3, type: 2}
   currentHP: 0
 --- !u!212 &212504644071641190
 SpriteRenderer:
@@ -143,8 +143,8 @@ SpriteRenderer:
   m_SortingLayerID: -729155537
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: 2f0a839e6bbe95840b655e6ec7387395, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300008, guid: 494255b03e2ca3e4886ead1aeccf94d9, type: 3}
+  m_Color: {r: 0.9485294, g: 0.9485294, b: 0.9485294, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
