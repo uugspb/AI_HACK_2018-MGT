@@ -36,6 +36,10 @@ public class LevelManager : MonoBehaviour
 			currentLevel++;
 			MusicManager.GetI().SetMusic(levelConfigs[currentLevel].musicID);
 		}
+		else
+		{
+			FishGenerator.GetI().Stop();
+		}
 
 	}
 
