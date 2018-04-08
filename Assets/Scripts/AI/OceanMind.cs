@@ -32,13 +32,13 @@ public class OceanMind : MonoBehaviour
 
     public static void LearnTrap(int trapID)
     {
-        Debug.Log("LearnTrap: " + trapID + "\nKills: " + instance.trapInfoList[trapID].fishKills);
+        //Debug.Log("LearnTrap: " + trapID + "\nKills: " + instance.trapInfoList[trapID].fishKills);
         instance.trapInfoList[trapID].fishKills++;
         instance.trapInfoList[trapID].probability =
             1 - oceanTrapProbabilitiesByKills[Mathf.Clamp(instance.trapInfoList[trapID].fishKills,
             0, oceanTrapProbabilitiesByKills.Length - 1)];
-        Debug.Log("EndLearnTrap Kills: " + instance.trapInfoList[trapID].fishKills +
+        /*Debug.Log("EndLearnTrap Kills: " + instance.trapInfoList[trapID].fishKills +
             "\nOceanProbability: " + oceanTrapProbabilitiesByKills[Mathf.Clamp(instance.trapInfoList[trapID].fishKills,
-            0, oceanTrapProbabilitiesByKills.Length - 1)]);
+            0, oceanTrapProbabilitiesByKills.Length - 1)]);*/
     }
 }

@@ -39,8 +39,16 @@ public class Weapon : Sinkable {
     protected override void Explosion()
     {
         base.Explosion();
-        if(particleSystem != null)
-            particleSystem.Play();
+        //GetComponent<ParticleSystem>().Play();
+        if (particleSystem != null)
+        {
+            ParticlePlayer.SetParticleSystem(particleSystem);
+            Debug.Log(particleSystem.isPlaying);
+        }
+        else
+        {
+            Debug.Log("ParticleSystem is null");
+        }
         Debug.Log("Explosion");
         RaycastHit2D[] raycasts = Physics2D.CircleCastAll(transform.position, explosionRadius, Vector2.up);
         foreach (RaycastHit2D raycast in raycasts)

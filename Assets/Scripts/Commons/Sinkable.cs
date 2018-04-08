@@ -41,7 +41,7 @@ public class Sinkable : Dieble {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	protected virtual void Update () {
         if (state == SinkableStateEnum.SINKING)
         {
             if (!mustStay && transform.position.y < Camera.main.transform.position.y - Camera.main.orthographicSize)
@@ -95,5 +95,6 @@ public class Sinkable : Dieble {
 
     protected virtual void Explosion()
     {
+        
     }
 }
