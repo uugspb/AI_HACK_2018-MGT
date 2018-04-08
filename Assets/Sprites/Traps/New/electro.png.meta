@@ -1,12 +1,9 @@
 fileFormatVersion: 2
-guid: a61b8409505be6c4cabaa773a7e2183b
-timeCreated: 1523140998
+guid: b07c0c879204df040ae34bfc2a7cf13a
+timeCreated: 1523158711
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: fastfood_0
-    21300002: fastfood_1
-    21300004: fastfood_2
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -49,7 +46,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 30
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -72,12 +69,12 @@ TextureImporter:
   - buildTarget: Standalone
     maxTextureSize: 4096
     resizeAlgorithm: 0
-    textureFormat: 12
-    textureCompression: 1
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
   - buildTarget: iPhone
     maxTextureSize: 4096
@@ -111,67 +108,8 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: fastfood_0
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 8
-        width: 20
-        height: 88
-      alignment: 9
-      pivot: {x: 0.5000002, y: 0.07666218}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: fastfood_1
-      rect:
-        serializedVersion: 2
-        x: 25
-        y: 8
-        width: 18
-        height: 88
-      alignment: 9
-      pivot: {x: 0.57075757, y: 0.08028045}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: fastfood_2
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 8
-        width: 13
-        height: 88
-      alignment: 9
-      pivot: {x: 0.5000006, y: 0.09837181}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    outline:
-    - - {x: 4.5, y: 48}
-      - {x: -22.5, y: 48}
-      - {x: -32.5, y: -12}
-      - {x: -32.5, y: -37}
-      - {x: -31.5, y: -39}
-      - {x: -28.5, y: -42}
-      - {x: 8.5, y: -42}
-      - {x: 11.5, y: -35}
-      - {x: 11.5, y: 0}
-    - - {x: 16.5, y: 48}
-      - {x: 11.5, y: 4}
-      - {x: 11.5, y: -37}
-      - {x: 15.5, y: -42}
-      - {x: 23.5, y: -42}
-      - {x: 28.5, y: -37}
-      - {x: 28.5, y: -3}
-      - {x: 21.5, y: 48}
+    sprites: []
+    outline: []
     physicsShape: []
   spritePackingTag: 
   userData: 
