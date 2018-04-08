@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60e8e6db642c7ea46a0ecbedc6cf52c2, type: 3}
-  m_Name: KnifeSinkableConfig
+  m_Name: DartSinkableConfig
   m_EditorClassIdentifier: 
-  sinkSpeed: 5
+  sinkSpeed: 7
   stayTime: 1
-  cooldown: 4
+  cooldown: 7

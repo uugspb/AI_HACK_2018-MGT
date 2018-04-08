@@ -8,9 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60e8e6db642c7ea46a0ecbedc6cf52c2, type: 3}
-  m_Name: KnifeSinkableConfig
+  m_Script: {fileID: 11500000, guid: 4673cabd43b16014ca1434a454f1e2ff, type: 3}
+  m_Name: BombWeaponConfig
   m_EditorClassIdentifier: 
-  sinkSpeed: 5
-  stayTime: 1
-  cooldown: 8
+  cooldown: 12
+  hitPower: 1
