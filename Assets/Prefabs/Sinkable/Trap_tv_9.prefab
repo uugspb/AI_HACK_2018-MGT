@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114058488477974834}
   - component: {fileID: 58145712582866638}
   m_Layer: 0
-  m_Name: Trap_tv_1
+  m_Name: Trap_tv_9
   m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
