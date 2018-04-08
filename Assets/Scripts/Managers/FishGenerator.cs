@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class FishGenerator : DiebleEventChecker
 {
 	[SerializeField] 
-	private GameObject fishPrefab;
+	private Fish fishPrefab;
 
 	private static FishGenerator instance;
 	
@@ -37,6 +37,7 @@ public class FishGenerator : DiebleEventChecker
 		width = Camera.main.scaledPixelWidth;
 		
 		LevelConfig config = LevelManager.GetI().GetConfig();
+        fishPrefab = config.fishPrefab;
 		fishCount = config.fishCount;
 		maxFishCount = config.maxFishCount;
 		//CreateStartFishes();
