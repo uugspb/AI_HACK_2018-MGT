@@ -209,6 +209,7 @@ Transform:
   - {fileID: 1882007044}
   - {fileID: 1864772856}
   - {fileID: 1459423642}
+  - {fileID: 2091123481}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -480,8 +481,8 @@ MonoBehaviour:
   sinkableID: 0
   hitPower: 10
   isTakeSinkable: 0
-  bottomHeightBound: 0.02
-  topHeightBound: 0.002
+  bottomHeightBound: 2.5
+  topHeightBound: 1
 --- !u!4 &966794899
 Transform:
   m_ObjectHideFlags: 0
@@ -626,6 +627,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0eef5f8a4c5b573439f844515e0f6195, type: 2}
   - {fileID: 11400000, guid: e883ab166ab40ed438f8def19b9f3353, type: 2}
   - {fileID: 11400000, guid: 563cd54fe80868d4988df370176fab09, type: 2}
+  - {fileID: 11400000, guid: 382199e1b3b9d0c4ca87b443b19810b0, type: 2}
   isStart: 1
   currentLevel: 0
 --- !u!1 &1481214590
@@ -836,7 +838,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1807948591}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: -6.7, z: 100}
+  m_LocalPosition: {x: 0.08, y: -28.275, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1020,6 +1022,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5b7649f2ea80946afe22cc8b157c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2091123480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2091123481}
+  - component: {fileID: 2091123482}
+  m_Layer: 0
+  m_Name: OceanMind
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2091123481
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2091123480}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.6472403, y: -5.688252, z: -88.94316}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 148538364}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2091123482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2091123480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51b355880c2edc4cb92d0eb2605fc62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startProbablility: 1
+  trapsCount: 1
 --- !u!1 &2130335272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,7 +1114,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1cd14e6d8d95b3041b4c31e98843dd93, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 1cd14e6d8d95b3041b4c31e98843dd93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1087,7 +1131,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2130335272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2, y: 3.6, z: 80}
+  m_LocalPosition: {x: 2.2, y: 3.4, z: 80}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
