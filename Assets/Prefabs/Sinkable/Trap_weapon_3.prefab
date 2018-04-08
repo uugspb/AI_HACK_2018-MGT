@@ -85,7 +85,10 @@ MonoBehaviour:
   mustRise: 0
   explosionRadius: 0
   config: {fileID: 11400000, guid: a92e8efb9f46b2446a7df691d20bfb9e, type: 2}
+  isSharpe: 0
   isActiveOnFall: 1
+  mustExploseBeforeRise: 0
+  particleSystem: {fileID: 0}
 --- !u!212 &212476126177902194
 SpriteRenderer:
   m_ObjectHideFlags: 1

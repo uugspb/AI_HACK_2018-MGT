@@ -123,7 +123,7 @@ public class Fish : Dieble {
         currentStayTime = freezeTime;
     }
 
-    bool IsFishMove()
+    public bool IsFishMove()
     {
         return isFishMove;
     }
@@ -155,10 +155,13 @@ public class Fish : Dieble {
             }
 
         }
-        else if(!IsFishMove() && collision.tag == "Weapon")
+        else if(collision.tag == "Weapon")
         {
             Weapon weapon = collision.gameObject.GetComponent<Weapon>();
-            Hit(weapon.config.hitPower);
+            if (weapon.IsSharpe())
+            {
+                Hit(weapon.config.hitPower);
+            }
             Debug.Log("weapon");
         }
     }

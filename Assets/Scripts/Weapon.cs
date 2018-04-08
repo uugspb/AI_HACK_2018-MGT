@@ -7,9 +7,12 @@ public class Weapon : Sinkable {
     public WeaponConfig config;
     private BoxCollider2D triggerCollider;
 
+    public bool isSharpe = true;
     public bool isActiveOnFall;
     public bool mustExploseBeforeRise = false;
+    public bool explosionNeedToStay = false;
     public ParticleSystem particleSystem;
+    
 
     // Use this for initialization
     void Start () {
@@ -36,6 +39,11 @@ public class Weapon : Sinkable {
         triggerCollider.enabled = true;
     }
 
+    public bool IsSharpe()
+    {
+        return isSharpe;
+    }
+
     protected override void Explosion()
     {
         base.Explosion();
@@ -57,6 +65,8 @@ public class Weapon : Sinkable {
             {
                 Debug.Log("Fish Explosion");
                 Fish fish = raycast.collider.gameObject.GetComponent<Fish>();
+                if (explosionNeedToStay && fish.IsFishMove())
+                    break;
                 fish.Hit(config.hitPower);
             }
         }

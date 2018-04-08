@@ -116,6 +116,7 @@ MonoBehaviour:
   mustRise: 1
   explosionRadius: 0
   config: {fileID: 11400000, guid: a92e8efb9f46b2446a7df691d20bfb9e, type: 2}
+  isSharpe: 0
   isActiveOnFall: 0
   mustExploseBeforeRise: 1
   particleSystem: {fileID: 198655793087024754}
