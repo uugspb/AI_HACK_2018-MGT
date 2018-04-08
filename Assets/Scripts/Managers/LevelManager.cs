@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
 	void Start ()
 	{
 		instance = this;
+		MusicManager.GetI().SetMusic(levelConfigs[currentLevel].musicID);
 	}
 
 	public static LevelManager GetI()
@@ -31,7 +32,11 @@ public class LevelManager : MonoBehaviour
 		if (currentLevel == 0 && isStart)
 			isStart = false;
 		else if (currentLevel < levelsCount - 1)
+		{
 			currentLevel++;
+			MusicManager.GetI().SetMusic(levelConfigs[currentLevel].musicID);
+		}
+
 	}
 
 	public LevelConfig GetConfig()

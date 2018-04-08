@@ -10,4 +10,5 @@ public class LevelConfig : ScriptableObject
     public int fishCount;
     public int maxFishCount;
     public Fish fishPrefab;
+    public int musicID;
 }
