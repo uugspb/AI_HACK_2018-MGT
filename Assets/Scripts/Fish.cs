@@ -186,7 +186,7 @@ public class Fish : Dieble {
 
     public override void Die()
     {
-        
+        OceanMind.LearnTrap(trapKillerID);
 
         animator.enabled = false;
         spriteRenderer.sprite = fishConfig.deathFish;

@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fef9f87d3477c47880a39ca8f7501d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sinkableID: 0
+  sinkableID: 12
   sinkTarget: {x: 0, y: 0}
   sinkableConfig: {fileID: 11400000, guid: e70abb3cf4cac5249beba2448ff1933f, type: 2}
   config: {fileID: 11400000, guid: a92e8efb9f46b2446a7df691d20bfb9e, type: 2}
