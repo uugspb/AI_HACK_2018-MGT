@@ -114,11 +114,12 @@ MonoBehaviour:
   sinkableConfig: {fileID: 11400000, guid: e70abb3cf4cac5249beba2448ff1933f, type: 2}
   mustStay: 1
   mustRise: 1
-  explosionRadius: 0
+  explosionRadius: 1.8
   config: {fileID: 11400000, guid: a92e8efb9f46b2446a7df691d20bfb9e, type: 2}
-  isSharpe: 0
+  isSharpe: 1
   isActiveOnFall: 0
   mustExploseBeforeRise: 1
+  explosionNeedToStay: 0
   particleSystem: {fileID: 198655793087024754}
 --- !u!198 &198655793087024754
 ParticleSystem:
