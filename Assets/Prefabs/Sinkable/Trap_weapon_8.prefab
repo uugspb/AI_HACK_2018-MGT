@@ -58,7 +58,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.38, y: 0.32}
+    oldSize: {x: 1.2666667, y: 1.0666667}
     newSize: {x: 0.38, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -81,6 +81,9 @@ MonoBehaviour:
   sinkableID: 17
   sinkTarget: {x: 0, y: 0}
   sinkableConfig: {fileID: 11400000, guid: e70abb3cf4cac5249beba2448ff1933f, type: 2}
+  mustStay: 1
+  mustRise: 1
+  explosionRadius: 0
   config: {fileID: 11400000, guid: a92e8efb9f46b2446a7df691d20bfb9e, type: 2}
   isActiveOnFall: 0
 --- !u!212 &212476126177902194

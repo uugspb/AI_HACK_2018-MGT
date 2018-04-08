@@ -71,6 +71,9 @@ MonoBehaviour:
   sinkableID: 2
   sinkTarget: {x: 0, y: 0}
   sinkableConfig: {fileID: 11400000, guid: e70abb3cf4cac5249beba2448ff1933f, type: 2}
+  mustStay: 1
+  mustRise: 0
+  explosionRadius: 0
   config: {fileID: 11400000, guid: 674e80dc49990f14e80ea18a9c2ff65d, type: 2}
 --- !u!212 &212476126177902194
 SpriteRenderer:

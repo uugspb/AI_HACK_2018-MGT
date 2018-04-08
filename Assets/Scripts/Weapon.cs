@@ -8,6 +8,7 @@ public class Weapon : Sinkable {
     private BoxCollider2D triggerCollider;
 
     public bool isActiveOnFall;
+    public bool mustExploseBeforeRise = false;
     
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,10 @@ public class Weapon : Sinkable {
 
     public override void Rise()
     {
+        if (mustExploseBeforeRise)
+        {
+            Explosion();
+        }
         base.Rise();
         triggerCollider.enabled = false;
     }
@@ -28,5 +33,21 @@ public class Weapon : Sinkable {
     {
         base.Stay();
         triggerCollider.enabled = true;
+    }
+
+    protected override void Explosion()
+    {
+        base.Explosion();
+        Debug.Log("Explosion");
+        RaycastHit2D[] raycasts = Physics2D.CircleCastAll(transform.position, explosionRadius, Vector2.up);
+        foreach (RaycastHit2D raycast in raycasts)
+        {
+            if (raycast.collider.tag == "Fish")
+            {
+                Debug.Log("Fish Explosion");
+                Fish fish = raycast.collider.gameObject.GetComponent<Fish>();
+                fish.Hit(config.hitPower);
+            }
+        }
     }
 }

@@ -128,7 +128,7 @@ public class Fish : Dieble {
         return isFishMove;
     }
 
-    void Hit(int hitPower)
+    public void Hit(int hitPower)
     {
         currentHP -= hitPower;
         CheckHP();

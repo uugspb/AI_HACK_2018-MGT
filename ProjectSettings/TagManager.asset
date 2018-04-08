@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Trap
   - Weapon
+  - Fish
   layers:
   - Default
   - TransparentFX
