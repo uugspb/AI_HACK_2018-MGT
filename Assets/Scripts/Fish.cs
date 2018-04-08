@@ -148,39 +148,67 @@ public class Fish : Dieble {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Trap")
+        if (collision.usedByEffector)
         {
-            Trap trap = collision.gameObject.GetComponent<Trap>();
-            trapTarget = collision.gameObject.transform.position;
-            if (mind.CheckTrap(Vector2.Distance(transform.position, trapTarget), trap.sinkableID))
+            if(collision.tag == "Trap")
             {
-                // Set angle to Trap
-                trapAngle = CalculateAngle(trapTarget);
-                FishStay(trap.config.fishFreezeTime);
-                trapKillerID = trap.sinkableID;
-            }
+                Trap trap = collision.gameObject.GetComponent<Trap>();
+                trapTarget = collision.gameObject.transform.position;
+                if (mind.CheckTrap(Vector2.Distance(transform.position, trapTarget), trap.sinkableID))
+                {
+                    // Set angle to Trap
+                    trapAngle = CalculateAngle(trapTarget);
+                    FishStay(trap.config.fishFreezeTime);
+                    trapKillerID = trap.sinkableID;
+                }
 
+            }
+            else if(collision.tag == "Weapon")
+            {
+                Weapon weapon = collision.gameObject.GetComponent<Weapon>();
+
+                if (!mind.CheckTrap(Vector2.Distance(transform.position, weapon.transform.position), weapon.sinkableID))
+                {
+                    Disappear();
+                    Debug.Log("escape");
+                }
+
+                //Hit(weapon.config.hitPower, weapon.sinkableID);
+                Debug.Log("weapon");
+            }
         }
-        else if(collision.tag == "Weapon")
+        else
         {
-            Weapon weapon = collision.gameObject.GetComponent<Weapon>();
-
-            if ((weapon.mustExploseBeforeRise || weapon.isActiveOnFall || !weapon.mustRise) &&
-                !mind.CheckTrap(Vector2.Distance(transform.position, weapon.transform.position), weapon.sinkableID))
+            if(collision.tag == "Trap")
             {
-                Disappear();
-                Debug.Log("escape");
-            }
+                Trap trap = collision.gameObject.GetComponent<Trap>();
+                trapTarget = collision.gameObject.transform.position;
+                if (mind.CheckTrap(Vector2.Distance(transform.position, trapTarget), trap.sinkableID))
+                {
+                    // Set angle to Trap
+                    trapAngle = CalculateAngle(trapTarget);
+                    FishStay(trap.config.fishFreezeTime);
+                    trapKillerID = trap.sinkableID;
+                }
 
-            if (weapon.IsSharpe())
+            }
+            else if(collision.tag == "Weapon")
             {
-                Hit(weapon.config.hitPower, weapon.sinkableID);
-            }
+                Weapon weapon = collision.gameObject.GetComponent<Weapon>();
 
-            //Hit(weapon.config.hitPower, weapon.sinkableID);
-            Debug.Log("weapon");
+                if (weapon.IsSharpe())
+                {
+                    Hit(weapon.config.hitPower, weapon.sinkableID);
+                }
+
+                //Hit(weapon.config.hitPower, weapon.sinkableID);
+                Debug.Log("weapon");
+            }
         }
     }
+    
+    
+    
 
     private void CheckDisappear()
     {
