@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
             if (!ClickInGameZone(clickPos))
                 return;
 			SinkableGenerator.GetI().Generate(clickPos,sinkableID);
+			IconsManager.GetI().BlockIcon(sinkableID);
 			isTakeSinkable = false;
 		}
 		
