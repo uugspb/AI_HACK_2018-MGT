@@ -29,6 +29,10 @@ public class Fish : Dieble {
     private float currentStayTime;
     private double trapAngle;
     private Vector3 trapTarget;
+    private int trapKillerID;
+
+    private Vector3 weaponTarget;
+    private int weaponKillerID;
 
     private DisappearEvent m_disappearEvent = new DisappearEvent();
 
@@ -71,7 +75,6 @@ public class Fish : Dieble {
                 //trapAngle = CalculateAngle(trapTarget);
                 SetAngle(trapTarget, trapAngle);
                 //transform.LookAt(trapTarget);
-                Debug.Log("trapTarget");
             }
         }
     }
@@ -138,13 +141,15 @@ public class Fish : Dieble {
         if(collision.tag == "Trap")
         {
             Trap trap = collision.gameObject.GetComponent<Trap>();
-            // Set angle to Trap
             trapTarget = collision.gameObject.transform.position;
-            //trapAngle = CalculateAngle(collision.gameObject.transform.position);
-            //SetAngle(trapTarget, trapAngle);
-            //transform.LookAt(trapTarget);
-            trapAngle = CalculateAngle(trapTarget);
-            FishStay(trap.config.fishFreezeTime);
+            if (mind.CheckTrap(Vector2.Distance(transform.position, trapTarget), trap.sinkableID))
+            {
+                // Set angle to Trap
+                trapAngle = CalculateAngle(trapTarget);
+                FishStay(trap.config.fishFreezeTime);
+                trapKillerID = trap.sinkableID;
+            }
+
         }
         else if(!IsFishMove() && collision.tag == "Weapon")
         {
@@ -181,6 +186,8 @@ public class Fish : Dieble {
 
     public override void Die()
     {
+        
+
         animator.enabled = false;
         spriteRenderer.sprite = fishConfig.deathFish;
         isDie = true;

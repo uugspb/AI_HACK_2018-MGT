@@ -98,6 +98,7 @@ public class FishGenerator : DiebleEventChecker
 		cameraDifference.z = 0;
 		Fish fish = Instantiate(fishPrefab, position+cameraDifference, Quaternion.identity).GetComponent<Fish>();
 		fish.SetTarget(target + cameraDifference);
+        fish.SetMind(OceanMind.GetCurrentFishMind());
 		
 		fishList.Add(fish);
 		fish.RegisterListener(DeleteFish);
