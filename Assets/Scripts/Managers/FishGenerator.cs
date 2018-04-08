@@ -74,8 +74,21 @@ public class FishGenerator : DiebleEventChecker
 
 	public void DisappearFish(Fish fish)
 	{
-		fishList.Remove((Fish)fish);
-		fishCount++;
+		float targetPos = Random.Range(height*bottomGenBorder, height*topGenBorder);
+		Vector3 target;
+		if (fish.transform.position.x > 0)
+		{
+			target = Camera.main.ScreenToWorldPoint(new Vector3(-0.1f*width , targetPos));
+		}
+		else
+		{
+			target = Camera.main.ScreenToWorldPoint(new Vector3(1.1f*width , targetPos));
+		}
+
+		target.z = 0;
+		fish.SetTarget(target);
+		fish.updateAngle();
+		
 	}
 	
 	void CreateStartFishes()

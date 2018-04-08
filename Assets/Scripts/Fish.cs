@@ -43,10 +43,14 @@ public class Fish : Dieble {
         speed = fishConfig.speed;
         currentHP = fishConfig.maxHP;
 
-        targetAngle = CalculateAngle(target);
+        updateAngle();
         FishMove();
     }
 
+    public void updateAngle()
+    {
+        targetAngle = CalculateAngle(target);
+    }
     void Update () {
         if (isFishMove)
         {
@@ -179,8 +183,6 @@ public class Fish : Dieble {
         if (m_disappearEvent != null)
         {
             m_disappearEvent.Invoke(this);
-            gameObject.SetActive(false);
-            Destroy(gameObject);
         }
     }
 
