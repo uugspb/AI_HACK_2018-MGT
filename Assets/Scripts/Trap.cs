@@ -20,7 +20,8 @@ public class Trap : Sinkable {
     {
         base.Rise();
         triggerCollider.enabled = false;
-        animator.enabled = false;
+        if(animator != null)
+            animator.enabled = false;
     }
 
     public override void Stay()
@@ -28,6 +29,7 @@ public class Trap : Sinkable {
         base.Stay();
         Debug.Log("TrapStay");
         triggerCollider.enabled = true;
-        animator.enabled = true;
+        if (animator != null)
+            animator.enabled = true;
     }
 }
