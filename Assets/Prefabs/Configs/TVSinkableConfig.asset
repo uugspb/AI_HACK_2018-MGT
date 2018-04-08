@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinkSpeed: 2
   stayTime: 4
+  cooldown: 6

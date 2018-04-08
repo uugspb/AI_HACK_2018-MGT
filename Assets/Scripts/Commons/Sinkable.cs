@@ -8,6 +8,9 @@ public class Sinkable : Dieble {
     public int sinkableID;
     public Vector2 sinkTarget;
     public SinkableConfig sinkableConfig;
+    public bool mustStay = true;
+    public bool mustRise = true;
+    public float explosionRadius;
 
     private Vector3 previousPosition;
     protected SinkableStateEnum state = SinkableStateEnum.NONE;
@@ -18,6 +21,11 @@ public class Sinkable : Dieble {
         Debug.Log("Sinking");
         state = SinkableStateEnum.SINKING;
         previousPosition = transform.position;
+
+        if (!mustStay)
+        {
+            sinkTarget = new Vector2(sinkTarget.x, Camera.main.transform.position.y - Camera.main.orthographicSize);
+        }
     }
 
     public virtual void Stay()
@@ -33,27 +41,44 @@ public class Sinkable : Dieble {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	protected virtual void Update () {
         if (state == SinkableStateEnum.SINKING)
         {
-            if (sinkTarget.y < transform.position.y)
+            if (!mustStay && transform.position.y < Camera.main.transform.position.y - Camera.main.orthographicSize)
+            {
+                Die();
+                fullDestroy();
+
+            }
+            else if (sinkTarget.y < transform.position.y)
             {
                 transform.position = Vector3.MoveTowards(transform.position, sinkTarget, sinkableConfig.sinkSpeed * Time.deltaTime);
             }
             else
             {
+                Debug.Log("Stay with mustStay: " + mustStay);
                 Stay();
             }
         }
         else if (state == SinkableStateEnum.STAYING)
         {
-            if(currentStayTime < 0)
+            if(mustRise && currentStayTime <= 0)
             {
                 Rise();
             }
+            else if(currentStayTime > 0)
+            {
+                currentStayTime -= Time.deltaTime;
+            }
+            else if(!mustRise && currentStayTime <= 0)
+            {
+                Explosion();
+                Die();
+                fullDestroy();
+            }
 
-            currentStayTime -= Time.deltaTime;
-        } else if (state == SinkableStateEnum.RISING)
+        }
+        else if (state == SinkableStateEnum.RISING)
         {
             if (previousPosition.y > transform.position.y)
             {
@@ -67,4 +92,9 @@ public class Sinkable : Dieble {
             }
         }
 	}
+
+    protected virtual void Explosion()
+    {
+        
+    }
 }

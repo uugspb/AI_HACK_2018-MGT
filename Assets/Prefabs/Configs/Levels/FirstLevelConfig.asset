@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: FirstLevelConfig
   m_EditorClassIdentifier: 
   cameraPosition: {x: 0, y: -2.5, z: -100}
-  fishCount: 30
-  maxFishCount: 30
-  fishPrefab: {fileID: 114960121899185860, guid: 8613f0984e637bb42aaca07f3a0052d3,
-    type: 2}
+  fishCount: 40
+  maxFishCount: 40
+  fishPrefab: {fileID: 1581781341738824, guid: 8613f0984e637bb42aaca07f3a0052d3, type: 2}
+  musicID: 0

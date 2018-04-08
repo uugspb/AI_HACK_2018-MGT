@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: KnifeSinkableConfig
   m_EditorClassIdentifier: 
   sinkSpeed: 5
-  stayTime: 3
+  stayTime: 1
+  cooldown: 4

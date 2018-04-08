@@ -4,6 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu (fileName="WeaponConfig", menuName = "Create WeaponConfig")]
 public class WeaponConfig : ScriptableObject {
+	public float cooldown;
     public int hitPower;
 	
 }

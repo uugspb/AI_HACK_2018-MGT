@@ -80,9 +80,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinkableID: 0
   sinkTarget: {x: 0, y: 0}
-  sinkableConfig: {fileID: 11400000, guid: e70abb3cf4cac5249beba2448ff1933f, type: 2}
+  sinkableConfig: {fileID: 11400000, guid: d4051d61450f35745acc5c0566c1f852, type: 2}
+  mustStay: 1
+  mustRise: 1
+  explosionRadius: 0
   config: {fileID: 11400000, guid: a92e8efb9f46b2446a7df691d20bfb9e, type: 2}
+  isSharpe: 1
   isActiveOnFall: 0
+  mustExploseBeforeRise: 0
+  explosionNeedToStay: 0
+  particleSystem: {fileID: 0}
 --- !u!212 &212476126177902194
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61120284625355056}
   m_Layer: 0
   m_Name: Trap_weapon_4
-  m_TagString: Weapon
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,9 +80,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinkableID: 13
   sinkTarget: {x: 0, y: 0}
-  sinkableConfig: {fileID: 11400000, guid: e70abb3cf4cac5249beba2448ff1933f, type: 2}
+  sinkableConfig: {fileID: 11400000, guid: 391bd32d64fbaf147a2ac42be2516ad8, type: 2}
+  mustStay: 1
+  mustRise: 0
+  explosionRadius: 1
   config: {fileID: 11400000, guid: a92e8efb9f46b2446a7df691d20bfb9e, type: 2}
+  isSharpe: 0
   isActiveOnFall: 0
+  mustExploseBeforeRise: 0
+  explosionNeedToStay: 1
+  particleSystem: {fileID: 0}
 --- !u!212 &212476126177902194
 SpriteRenderer:
   m_ObjectHideFlags: 1

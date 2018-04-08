@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class FishGenerator : DiebleEventChecker
 {
 	[SerializeField] 
-	private Fish fishPrefab;
+	private GameObject fishPrefab;
 
 	private static FishGenerator instance;
 	
@@ -74,8 +74,21 @@ public class FishGenerator : DiebleEventChecker
 
 	public void DisappearFish(Fish fish)
 	{
-		fishList.Remove((Fish)fish);
-		fishCount++;
+		float targetPos = Random.Range(height*bottomGenBorder, height*topGenBorder);
+		Vector3 target;
+		if (fish.GetTarget().x > 0)
+		{
+			target = Camera.main.ScreenToWorldPoint(new Vector3(-0.1f*width , targetPos));
+		}
+		else
+		{
+			target = Camera.main.ScreenToWorldPoint(new Vector3(1.1f*width , targetPos));
+		}
+
+		target.z = 0;
+		fish.SetTarget(target);
+		fish.updateAngle();
+		
 	}
 	
 	void CreateStartFishes()
@@ -143,7 +156,8 @@ public class FishGenerator : DiebleEventChecker
 		LevelManager.GetI().nextLevel();
 		LevelConfig config = LevelManager.GetI().GetConfig();
 
-		fishCount = config.fishCount;
+        fishPrefab = config.fishPrefab;
+        fishCount = config.fishCount;
 		maxFishCount = config.maxFishCount;
 		
 		//CreateStartFishes();

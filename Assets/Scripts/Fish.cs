@@ -43,10 +43,14 @@ public class Fish : Dieble {
         speed = fishConfig.speed;
         currentHP = fishConfig.maxHP;
 
-        targetAngle = CalculateAngle(target);
+        updateAngle();
         FishMove();
     }
 
+    public void updateAngle()
+    {
+        targetAngle = CalculateAngle(target);
+    }
     void Update () {
         if (isFishMove)
         {
@@ -84,6 +88,11 @@ public class Fish : Dieble {
         this.target = target;
     }
 
+    public Vector3 GetTarget()
+    {
+        return target;
+    }
+
     public void SetMind(FishMind fishMind) 
     {
         this.mind = fishMind;
@@ -119,14 +128,15 @@ public class Fish : Dieble {
         currentStayTime = freezeTime;
     }
 
-    bool IsFishMove()
+    public bool IsFishMove()
     {
         return isFishMove;
     }
 
-    void Hit(int hitPower)
+    public void Hit(int hitPower, int weaponID)
     {
         currentHP -= hitPower;
+        weaponKillerID = weaponID;
         CheckHP();
     }
 
@@ -151,10 +161,23 @@ public class Fish : Dieble {
             }
 
         }
-        else if(!IsFishMove() && collision.tag == "Weapon")
+        else if(collision.tag == "Weapon")
         {
             Weapon weapon = collision.gameObject.GetComponent<Weapon>();
-            Hit(weapon.config.hitPower);
+
+            if ((weapon.mustExploseBeforeRise || weapon.isActiveOnFall || !weapon.mustRise) &&
+                !mind.CheckTrap(Vector2.Distance(transform.position, weapon.transform.position), weapon.sinkableID))
+            {
+                Disappear();
+                Debug.Log("escape");
+            }
+
+            if (weapon.IsSharpe())
+            {
+                Hit(weapon.config.hitPower, weapon.sinkableID);
+            }
+
+            //Hit(weapon.config.hitPower, weapon.sinkableID);
             Debug.Log("weapon");
         }
     }
@@ -179,18 +202,22 @@ public class Fish : Dieble {
         if (m_disappearEvent != null)
         {
             m_disappearEvent.Invoke(this);
-            gameObject.SetActive(false);
-            Destroy(gameObject);
         }
     }
 
     public override void Die()
     {
         OceanMind.LearnTrap(trapKillerID);
-
+        OceanMind.LearnTrap(weaponKillerID);
+        
         animator.enabled = false;
         spriteRenderer.sprite = fishConfig.deathFish;
         isDie = true;
         isFishMove = false;
+    }
+
+    public void ChangeDirection()
+    {
+        Disappear();
     }
 }

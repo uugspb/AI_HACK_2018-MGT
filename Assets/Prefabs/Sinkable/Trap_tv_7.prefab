@@ -70,7 +70,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinkableID: 6
   sinkTarget: {x: 0, y: 0}
-  sinkableConfig: {fileID: 11400000, guid: e70abb3cf4cac5249beba2448ff1933f, type: 2}
+  sinkableConfig: {fileID: 11400000, guid: f034651664c044a4999c4251193b3a52, type: 2}
+  mustStay: 1
+  mustRise: 1
+  explosionRadius: 0
   config: {fileID: 11400000, guid: 674e80dc49990f14e80ea18a9c2ff65d, type: 2}
 --- !u!212 &212476126177902194
 SpriteRenderer:
@@ -106,7 +109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3db2fd76de6ca7d4d82b869c12e5bbf2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 764dbac8ca5754148aabfbb7e51ac1d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
