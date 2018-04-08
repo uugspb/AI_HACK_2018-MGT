@@ -35,6 +35,10 @@ public class FishGenerator : DiebleEventChecker
 		
 		height = Camera.main.scaledPixelHeight;
 		width = Camera.main.scaledPixelWidth;
+		
+		LevelConfig config = LevelManager.GetI().GetConfig();
+		fishCount = config.fishCount;
+		maxFishCount = config.maxFishCount;
 		//CreateStartFishes();
 	}
 
