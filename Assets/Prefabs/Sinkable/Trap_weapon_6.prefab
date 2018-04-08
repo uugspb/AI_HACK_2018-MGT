@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212476126177902194}
   - component: {fileID: 114060908565716378}
   - component: {fileID: 61120284625355056}
+  - component: {fileID: 58289917115899488}
   m_Layer: 0
   m_Name: Trap_weapon_6
   m_TagString: Weapon
@@ -66,13 +67,28 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1004633605237542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.13, y: 0.83, z: -37.953125}
+  m_LocalPosition: {x: -1.2802856, y: -1.48641, z: -37.953125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4406344786891122}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58289917115899488
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1004633605237542}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 1
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.010553062, y: 0.11}
+  serializedVersion: 2
+  m_Radius: 1.5
 --- !u!61 &61120284625355056
 BoxCollider2D:
   m_ObjectHideFlags: 1
