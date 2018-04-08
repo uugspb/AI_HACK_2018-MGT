@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 1cd14e6d8d95b3041b4c31e98843dd93
-timeCreated: 1523114721
+guid: 574d3e9c80d7bfb4dab3838d9092d4f2
+timeCreated: 1523140997
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: crazy_0
-    21300002: crazy_1
-    21300004: crazy_2
+    21300000: electro_0
+    21300002: electro_1
+    21300004: electro_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 12
+  spritePixelsToUnits: 25
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -60,50 +60,50 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
   - buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 0
+    textureFormat: 12
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 1
     androidETC2FallbackOverride: 0
   - buildTarget: iPhone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
   - buildTarget: Android
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
   - buildTarget: WebGL
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crazy_0
+      name: electro_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 12
-        width: 39
-        height: 13
+        x: 7
+        y: 6
+        width: 19
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,13 +127,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: crazy_1
+      name: electro_1
       rect:
         serializedVersion: 2
-        x: 53
-        y: 8
-        width: 38
-        height: 19
+        x: 29
+        y: 5
+        width: 31
+        height: 99
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,21 +141,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: crazy_2
+      name: electro_2
       rect:
         serializedVersion: 2
-        x: 96
-        y: 8
-        width: 38
-        height: 21
+        x: 63
+        y: 1
+        width: 30
+        height: 103
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
-    outline: []
-    physicsShape: []
+    outline:
+    - - {x: 39, y: -27}
+      - {x: 41, y: -25}
+      - {x: 41, y: -20}
+      - {x: 36, y: -15}
+      - {x: 32, y: -16}
+      - {x: 32, y: -21}
+      - {x: 32, y: 52}
+      - {x: 22, y: 52}
+      - {x: 13, y: -6}
+      - {x: 13, y: -45}
+      - {x: 23, y: -52}
+      - {x: 38, y: -52}
+      - {x: 47, y: -48}
+      - {x: 47, y: -23}
+      - {x: 43, y: -23}
+    - - {x: 0, y: 52}
+      - {x: -5, y: 52}
+      - {x: -21, y: -15}
+      - {x: -21, y: -39}
+      - {x: -16, y: -48}
+      - {x: -9, y: -49}
+      - {x: 14, y: -49}
+      - {x: 14, y: -18}
+      - {x: 13, y: -17}
+    - - {x: -34, y: 52}
+      - {x: -43, y: -22}
+      - {x: -43, y: -35}
+      - {x: -41, y: -48}
+      - {x: -23, y: -48}
+      - {x: -20, y: -38}
+      - {x: -20, y: -7}
+      - {x: -29, y: 52}
+    physicsShape:
+    - - {x: 39, y: -27}
+      - {x: 41, y: -25}
+      - {x: 41, y: -20}
+      - {x: 36, y: -15}
+      - {x: 32, y: -16}
+      - {x: 32, y: -21}
+      - {x: 32, y: 52}
+      - {x: 27, y: 52}
+      - {x: 24, y: -18}
+      - {x: 22, y: -18}
+      - {x: 13, y: -24}
+      - {x: 13, y: -39}
+      - {x: 26, y: -52}
+      - {x: 38, y: -52}
+      - {x: 47, y: -48}
+      - {x: 47, y: -23}
+      - {x: 43, y: -23}
+    - - {x: 3, y: -20}
+      - {x: 0, y: 52}
+      - {x: -5, y: 52}
+      - {x: -7, y: -23}
+      - {x: -9, y: -22}
+      - {x: -13, y: -21}
+      - {x: -15, y: -23}
+      - {x: -21, y: -28}
+      - {x: -21, y: -39}
+      - {x: -16, y: -48}
+      - {x: 0, y: -49}
+      - {x: 14, y: -49}
+      - {x: 14, y: -18}
+      - {x: 13, y: -17}
+    - - {x: -34, y: 52}
+      - {x: -43, y: -22}
+      - {x: -43, y: -35}
+      - {x: -41, y: -48}
+      - {x: -23, y: -48}
+      - {x: -20, y: -38}
+      - {x: -20, y: -7}
+      - {x: -29, y: 52}
   spritePackingTag: 
   userData: 
   assetBundleName: 
