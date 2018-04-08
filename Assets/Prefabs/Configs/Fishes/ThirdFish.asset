@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539a179276e74c44e81f10b11137e217, type: 3}
+  m_Name: ThirdFish
+  m_EditorClassIdentifier: 
+  speed: 2
+  moveAmplitude: 0.2
+  maxHP: 4
+  gold: 0
+  deathFish: {fileID: 21300016, guid: 494255b03e2ca3e4886ead1aeccf94d9, type: 3}

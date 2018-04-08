@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class FishGenerator : DiebleEventChecker
 {
 	[SerializeField] 
-	private Fish fishPrefab;
+	private GameObject fishPrefab;
 
 	private static FishGenerator instance;
 	
@@ -117,6 +117,9 @@ public class FishGenerator : DiebleEventChecker
 		Fish fish = Instantiate(fishPrefab, position+cameraDifference, Quaternion.identity).GetComponent<Fish>();
 		fish.SetTarget(target + cameraDifference);
         fish.SetMind(OceanMind.GetCurrentFishMind());
+        SpriteRenderer spriteRenderer = fish.GetComponent<SpriteRenderer>();
+        spriteRenderer.color = GetColor();
+
 		
 		fishList.Add(fish);
 		fish.RegisterListener(DeleteFish);
@@ -153,9 +156,16 @@ public class FishGenerator : DiebleEventChecker
 		LevelManager.GetI().nextLevel();
 		LevelConfig config = LevelManager.GetI().GetConfig();
 
-		fishCount = config.fishCount;
+        fishPrefab = config.fishPrefab;
+        fishCount = config.fishCount;
 		maxFishCount = config.maxFishCount;
 		
 		//CreateStartFishes();
 	}
+
+    public Color GetColor()
+    {
+        Color newColor = new Color(Random.Range(0, 255)/100, Random.Range(0, 255)/100, Random.Range(0, 255)/100);
+        return newColor;
+    }
 }
