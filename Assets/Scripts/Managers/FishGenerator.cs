@@ -24,6 +24,7 @@ public class FishGenerator : DiebleEventChecker
 
 	private float timeForCreate = 0;
 	private float currentInterval = 1;
+	private bool isStopped = false;
 	
 	// Use this for initialization
 	protected override void Start ()
@@ -52,7 +53,7 @@ public class FishGenerator : DiebleEventChecker
 	{
 		timeForCreate += Time.deltaTime;
 		
-		while (fishList.Count < maxFishCount && fishCount > 0 && timeForCreate>=currentInterval)
+		while ((fishList.Count < maxFishCount) && (fishCount > 0) && (timeForCreate>=currentInterval) && !isStopped)
 		{
 			CreateFish();
 			currentInterval = Random.Range(0, maxRandomInterval);
@@ -168,4 +169,9 @@ public class FishGenerator : DiebleEventChecker
         Color newColor = new Color(Random.Range(0, 255)/100, Random.Range(0, 255)/100, Random.Range(0, 255)/100);
         return newColor;
     }
+
+	public void Stop()
+	{
+		isStopped = true;
+	}
 }
