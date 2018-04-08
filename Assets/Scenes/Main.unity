@@ -1014,7 +1014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startProbablility: 1
-  trapsCount: 10
+  trapsCount: 16
 --- !u!114 &571471073 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114115409153478778, guid: 0a38ae12d4cdc1b4cbd3b90a35220a66,

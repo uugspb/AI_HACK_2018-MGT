@@ -164,6 +164,14 @@ public class Fish : Dieble {
         else if(collision.tag == "Weapon")
         {
             Weapon weapon = collision.gameObject.GetComponent<Weapon>();
+
+            if ((weapon.mustExploseBeforeRise || weapon.isActiveOnFall || !weapon.mustRise) &&
+                !mind.CheckTrap(Vector2.Distance(transform.position, weapon.transform.position), weapon.sinkableID))
+            {
+                Disappear();
+                Debug.Log("escape");
+            }
+
             if (weapon.IsSharpe())
             {
                 Hit(weapon.config.hitPower, weapon.sinkableID);
@@ -171,17 +179,6 @@ public class Fish : Dieble {
 
             //Hit(weapon.config.hitPower, weapon.sinkableID);
             Debug.Log("weapon");
-        }
-        
-        else if (collision.tag == "Weapon")
-        {
-            Weapon weapon = collision.gameObject.GetComponent<Weapon>();
-            if ((weapon.mustExploseBeforeRise || weapon.isActiveOnFall || !weapon.mustRise) &&
-                !mind.CheckTrap(Vector2.Distance(transform.position, weapon.transform.position), weapon.sinkableID))
-            {
-                Disappear();
-                Debug.Log("escape");
-            }
         }
     }
 

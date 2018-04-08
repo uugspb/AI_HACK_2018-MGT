@@ -58,7 +58,7 @@ public class Weapon : Sinkable {
             Debug.Log("ParticleSystem is null");
         }
         Debug.Log("Explosion");
-        RaycastHit2D[] raycasts = Physics2D.CircleCastAll(transform.position, explosionRadius, Vector2.up);
+        RaycastHit2D[] raycasts = Physics2D.CircleCastAll(transform.position, explosionRadius, Vector2.zero);
         foreach (RaycastHit2D raycast in raycasts)
         {
             if (raycast.collider.tag == "Fish")

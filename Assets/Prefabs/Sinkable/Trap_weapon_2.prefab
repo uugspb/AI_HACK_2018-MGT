@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4586534658919632}
   - component: {fileID: 212476126177902194}
   - component: {fileID: 114060908565716378}
-  - component: {fileID: 61895368371326350}
+  - component: {fileID: 61120284625355056}
   m_Layer: 0
   m_Name: Trap_weapon_2
   m_TagString: Weapon
@@ -75,7 +75,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61120284625355056
 BoxCollider2D:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1004633605237542}
@@ -114,11 +114,12 @@ MonoBehaviour:
   sinkableConfig: {fileID: 11400000, guid: 08b22fabb7ae9fe47a05d7ff77104946, type: 2}
   mustStay: 1
   mustRise: 0
-  explosionRadius: 1.5
+  explosionRadius: 2
   config: {fileID: 11400000, guid: a92e8efb9f46b2446a7df691d20bfb9e, type: 2}
   isSharpe: 0
   isActiveOnFall: 0
   mustExploseBeforeRise: 0
+  explosionNeedToStay: 0
   particleSystem: {fileID: 198190441250004406}
 --- !u!198 &198190441250004406
 ParticleSystem:
