@@ -9,9 +9,10 @@ public class Weapon : Sinkable {
 
     public bool isActiveOnFall;
     public bool mustExploseBeforeRise = false;
-    
-	// Use this for initialization
-	void Start () {
+    public ParticleSystem particleSystem;
+
+    // Use this for initialization
+    void Start () {
         triggerCollider = GetComponent<BoxCollider2D>();
 	    if(isActiveOnFall)
             triggerCollider.enabled = true;
@@ -38,6 +39,16 @@ public class Weapon : Sinkable {
     protected override void Explosion()
     {
         base.Explosion();
+        //GetComponent<ParticleSystem>().Play();
+        if (particleSystem != null)
+        {
+            ParticlePlayer.SetParticleSystem(particleSystem);
+            Debug.Log(particleSystem.isPlaying);
+        }
+        else
+        {
+            Debug.Log("ParticleSystem is null");
+        }
         Debug.Log("Explosion");
         RaycastHit2D[] raycasts = Physics2D.CircleCastAll(transform.position, explosionRadius, Vector2.up);
         foreach (RaycastHit2D raycast in raycasts)
